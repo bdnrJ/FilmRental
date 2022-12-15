@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="500.0" maxWidth="879.0" minHeight="500.0" minWidth="879.0" prefHeight="500.0" prefWidth="879.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.filmrental.AdminPanelController">
+   <children>
+      <BorderPane fx:id="bp" layoutX="-1.0" layoutY="-1.0" prefHeight="508.0" prefWidth="886.0">
+         <left>
+            <VBox prefHeight="444.0" prefWidth="203.0" style="-fx-background-color: #2B2C37;" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane onMouseClicked="#home" prefHeight="147.0" prefWidth="203.0" style="-fx-background-color: #635FC7;">
+                     <children>
+                        <FontAwesomeIcon fill="WHITE" glyphName="GEARS" layoutX="14.0" layoutY="72.0" size="6em" wrappingWidth="64.1428575515747" />
+                        <Text fill="WHITE" layoutX="95.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADMIN" wrappingWidth="100.13671875">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="84.0" prefWidth="203.0" />
+                  <Button mnemonicParsing="false" onMouseClicked="#filmy" prefHeight="40.0" prefWidth="203.0" style="-fx-text-fill: #ffffff;" styleClass="navBtn" text="Filmy">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIcon fill="WHITE" glyphName="FILM" />
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" onMouseClicked="#uzytkownicy" prefHeight="27.0" prefWidth="203.0" style="-fx-text-fill: #ffffff;" styleClass="navBtn" text="Uzytkownicy">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIcon fill="WHITE" glyphName="GROUP" />
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="203.0" style="-fx-text-fill: #ffffff;" styleClass="navBtn" text="Tranzakcje">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIcon fill="WHITE" glyphName="USER" />
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="203.0" style="-fx-text-fill: #ffffff;" styleClass="navBtn" text="Dłużnicy">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Button>
+                  <Pane prefHeight="185.0" prefWidth="203.0" />
+                  <Button mnemonicParsing="false" prefHeight="114.0" prefWidth="203.0" style="-fx-background-color: #2B2C37; -fx-text-fill: #ffffff;;" text="Exit">
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <AnchorPane prefHeight="507.0" prefWidth="717.0" style="-fx-background-color: #20212C;;" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox prefHeight="96.0" prefWidth="683.0" style="-fx-background-color: #2B2C37;">
+                     <children>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Text fill="WHITE" layoutX="14.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wyporzyczalnia Filmow">
+                                 <font>
+                                    <Font size="33.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                     </children></VBox>
+                  <Text fill="WHITE" layoutX="40.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Obecnie w bazie danych znajduje sie :">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="55.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100 ">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="105.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Uzytkownikow">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="55.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100 ">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="106.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filmów">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="55.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100 ">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="105.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tranzakcji:">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="559.0" layoutY="490.0" strokeType="OUTSIDE" strokeWidth="0.0" text="By Jakub Bednarczyk" />
+                  <Text fill="WHITE" layoutX="105.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="50">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="141.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="w trakcie">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="105.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="50">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="141.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ukończonych">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="55.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100 ">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="105.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dłużników">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

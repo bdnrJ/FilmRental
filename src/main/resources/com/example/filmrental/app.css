@@ -1,0 +1,55 @@
+#registerbtn{
+    -fx-text-fill: #635fc7;
+}
+
+#registerbtn:hover{
+    -fx-text-fill: #ffffff;
+}
+
+#loginbtn:hover{
+    -fx-background-color: #9995f8;
+}
+
+#loginbtn{
+    -fx-background-color: #645FC7;
+}
+
+.input{
+    -fx-border-color:  #4E5362;
+    -fx-background-color:  #20212C;
+    -fx-text-fill:  #FFFFFF;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+
+.input:hover{
+    -fx-border-color:  #645FC7;;
+}
+
+.input:focused{
+    -fx-border-color:  #645FC7;;
+}
+
+.styledbuttonround{
+    -fx-background-color: #645FC7;
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 20px;
+}
+
+.styledbuttonround:hover{
+    -fx-background-color: #9995f8;
+}
+
+
+.navBtn{
+    -fx-alignment: center-left;
+    -fx-background-color: #2B2C37;
+}
+
+.navBtn:hover{
+    -fx-background-color: #645FC7;
+}
+
+.tablice{
+    -fx-alignment: center;
+}

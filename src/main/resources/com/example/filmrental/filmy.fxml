@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="507.0" prefWidth="683.0" style="-fx-background-color: #20212C;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.filmrental.FilmyController">
+   <children>
+      <VBox prefHeight="96.0" prefWidth="683.0" style="-fx-background-color: #2B2C37;">
+         <children>
+            <AnchorPane prefHeight="100.0" prefWidth="650.0" style="-fx-background-color: #2B2C37;">
+               <children>
+                  <Text fill="WHITE" layoutX="24.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filmy">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="493.0" layoutY="28.0" mnemonicParsing="false" onAction="#goToAddFilm" prefHeight="40.0" prefWidth="164.0" styleClass="styledbuttonround" text="Dodaj Film">
+                     <graphic>
+                        <FontAwesomeIcon fill="WHITE" glyphName="PLUS" text="" />
+                     </graphic>
+                  </Button>
+                  <TextField fx:id="searchBox" layoutX="269.0" layoutY="28.0" onKeyTyped="#search" prefHeight="40.0" prefWidth="175.0" styleClass="input" />
+                  <FontAwesomeIcon fill="WHITE" glyphName="SEARCH" layoutX="235.0" layoutY="56.0" size="2em" wrappingWidth="34.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <TableView fx:id="tableView" layoutY="96.0" prefHeight="411.0" prefWidth="683.0" styleClass="tablice">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="31.0" text="Id" />
+          <TableColumn fx:id="tytul" prefWidth="217.0" text="Tytuł" />
+            <TableColumn fx:id="time" prefWidth="77.0" text="Czas trwania" />
+            <TableColumn fx:id="lang" prefWidth="53.0" text="Język" />
+            <TableColumn fx:id="date" prefWidth="111.0" text="Data premiery" />
+            <TableColumn fx:id="kraj" minWidth="0.0" prefWidth="78.0" text="Kraj" />
+            <TableColumn fx:id="editCol" minWidth="0.0" prefWidth="61.0" text="Edytuj" />
+            <TableColumn fx:id="deleteCol" minWidth="0.0" prefWidth="53.0" text="Usun" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
