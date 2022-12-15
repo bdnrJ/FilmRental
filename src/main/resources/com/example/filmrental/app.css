@@ -23,11 +23,11 @@
 }
 
 .input:hover{
-    -fx-border-color:  #645FC7;;
+    -fx-border-color:  #645FC7;
 }
 
 .input:focused{
-    -fx-border-color:  #645FC7;;
+    -fx-border-color:  #645FC7;
 }
 
 .styledbuttonround{
@@ -52,4 +52,27 @@
 
 .tablice{
     -fx-alignment: center;
+}
+
+.deleteBtn{
+    -fx-background-color: #ea5555;
+    -fx-background-radius: 20px;
+    -fx-text-fill: #ffffff;
+}
+
+.deleteBtn:hover{
+    -fx-background-color: #9D4549;
+    -fx-text-fill: #c3c2c2;
+}
+
+.cancelBtn{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 20px;
+    -fx-text-fill: #635fc7;
+}
+
+.cancelBtn:hover{
+    -fx-background-color: #c3c2c2;
+    -fx-background-radius: 20px;
+    -fx-text-fill: #630fc7;
 }

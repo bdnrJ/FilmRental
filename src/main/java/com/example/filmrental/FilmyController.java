@@ -4,6 +4,7 @@ import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import javafx.util.Callback;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -85,14 +87,37 @@ public class FilmyController implements Initializable {
           };
             return edit;
         };
+        Callback<TableColumn<Film,String>,TableCell<Film,String>> cellFactory2 = (param) ->{
+            final TableCell<Film,String> delete = new TableCell<Film,String>(){
+                @Override
+                public void updateItem(String item,boolean empty){
+                    super.updateItem(item,empty);
+                    if(empty){
+                        setGraphic(null);
+                        setText(null);
+                    }
+                    else{
+                        final Button deleteButton = new Button("DELETE");
+                        deleteButton.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
+                        deleteButton.setOnAction(event ->{
+                            Film f = getTableView().getItems().get(getIndex());
+                            try {
+                                goToDeletePrompt(f);
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
+                        });
+                        setGraphic(deleteButton);
+                        setText(null);
+                    }
+                }
+            };
+            return delete;
+        };
         editCol.setCellFactory(cellFactory);
+        deleteCol.setCellFactory(cellFactory2);
 
-        fetchData();
-
-        for(Film temp : filmy){
-            observableList.add(temp);
-        }
-        tableView.setItems(observableList);
+        reFetchAndRedisplay();
     }
 
     public void search(){
@@ -150,5 +175,44 @@ public class FilmyController implements Initializable {
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.show();
+        stage.setOnHidden(new EventHandler<WindowEvent>(){
+            public void handle(WindowEvent we) {
+                reFetchAndRedisplay();
+            }
+        });
+    }
+
+    @FXML
+    public void goToEdit() throws IOException{
+
+    }
+
+    @FXML
+    public void goToDeletePrompt(Film film) throws IOException{
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("promptDeleteFilm.fxml"));
+        Parent root = fxmlloader.load();
+        root.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
+        Stage stage = new Stage();
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(tableView.getScene().getWindow());
+        stage.setTitle("Usuwanie Filmu");
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.setUserData(film);
+        stage.show();
+        stage.setOnHidden(new EventHandler<WindowEvent>(){
+            public void handle(WindowEvent we) {
+                reFetchAndRedisplay();
+            }
+        });
+    }
+
+    public void reFetchAndRedisplay(){
+        fetchData();
+        observableList.removeAll(observableList);
+        for(Film temp : filmy){
+            observableList.add(temp);
+        }
+        tableView.setItems(observableList);
     }
 }

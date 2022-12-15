@@ -4,6 +4,7 @@ import MappingClasses.Film;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -138,6 +139,9 @@ public class dodajFilmController {
         session.persist(nowyfilm);
         transaction.commit();
         session.close();
+
+        Stage stage = (Stage) kraj.getScene().getWindow();
+        stage.close();
     }
 
 
