@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1beb1e20-e477-484d-87d2-2b9ae7c66ae4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/filmrental/PromptDeleteFilmController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/promptDeleteFilm.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/filmrental/PromptEdytujFilmController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/promptEdytujFilm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filmrental/FilmyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filmrental/FilmyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filmrental/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filmrental/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/app.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,9 +49,15 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "last_directory_selection": "C:/Users/reset/Desktop/FilmRental/FilmRental/FilmRental/src/main/java/com/example/filmrental",
+    "last_opened_file_path": "C:/Users/reset/Desktop/FilmRental/FilmRental/FilmRental/src/main/resources/com/example/filmrental",
     "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\reset\Desktop\FilmRental\FilmRental\FilmRental\src\main\resources\com\example\filmrental" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.filmrental.HelloApplication" />

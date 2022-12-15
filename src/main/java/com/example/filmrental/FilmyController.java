@@ -78,7 +78,11 @@ public class FilmyController implements Initializable {
                     editButton.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
                     editButton.setOnAction(event ->{
                         Film f = getTableView().getItems().get(getIndex());
-                        System.out.println(f);
+                        try {
+                            goToEdytujFilmPrompt(f);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
                     });
                     setGraphic(editButton);
                     setText(null);
@@ -183,8 +187,23 @@ public class FilmyController implements Initializable {
     }
 
     @FXML
-    public void goToEdit() throws IOException{
-
+    public void goToEdytujFilmPrompt(Film film) throws IOException{
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("promptEdytujFilm.fxml"));
+        Parent root = fxmlloader.load();
+        root.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
+        Stage stage = new Stage();
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(tableView.getScene().getWindow());
+        stage.setTitle("Usuwanie Filmu");
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.setUserData(film);
+        stage.show();
+        stage.setOnHidden(new EventHandler<WindowEvent>(){
+            public void handle(WindowEvent we) {
+                reFetchAndRedisplay();
+            }
+        });
     }
 
     @FXML
@@ -206,7 +225,6 @@ public class FilmyController implements Initializable {
             }
         });
     }
-
     public void reFetchAndRedisplay(){
         fetchData();
         observableList.removeAll(observableList);
