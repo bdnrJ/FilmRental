@@ -9,8 +9,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class PromptEdytujFilmController {
@@ -53,7 +55,13 @@ public class PromptEdytujFilmController {
         id.setText(String.valueOf(x.getId()));
         tytul.setText(x.getTytul());
         czasTrwania.setText(String.valueOf(x.getCzasTrwania()));
-//        dataPremiery.setText(x.getDataPremiery());
+
+        String pattern = "yyyy-MM-dd";
+        DateFormat df = new SimpleDateFormat(pattern);
+        Date date = x.getDataPremiery();
+        String dataString = df.format(date);
+        dataPremiery.setText(dataString);
+
         jezyk.setText(x.getJezyk());
         kraj.setText(x.getKraj());
     }
