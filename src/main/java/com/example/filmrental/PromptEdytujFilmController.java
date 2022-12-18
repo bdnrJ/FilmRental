@@ -8,6 +8,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -99,7 +104,7 @@ public class PromptEdytujFilmController {
         }
 
         if(allGood) {
-            Film nowy = new Film();
+            Film nowy = x;
 
             //z stringa na date
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -116,7 +121,7 @@ public class PromptEdytujFilmController {
             nowy.setKraj(kraj.getText());
 
 
-            System.out.println(nowy);
+
 
 
             pushToDatabase(nowy);
@@ -124,7 +129,23 @@ public class PromptEdytujFilmController {
     }
 
     public void pushToDatabase(Film zedytowany){
+        System.out.println(zedytowany);
+        Configuration config = new Configuration().configure();
 
+        config.addAnnotatedClass(MappingClasses.Film.class);
+
+        StandardServiceRegistryBuilder builder =
+                new StandardServiceRegistryBuilder().applySettings(config.getProperties());
+        SessionFactory factory = config.buildSessionFactory(builder.build());
+        Session session = factory.openSession();
+        Transaction transaction = session.beginTransaction();
+
+        session.update(zedytowany);
+        transaction.commit();
+        session.close();
+
+        Stage stage = (Stage) kraj.getScene().getWindow();
+        stage.close();
     }
 
     //regex

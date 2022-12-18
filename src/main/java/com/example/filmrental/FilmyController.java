@@ -1,7 +1,13 @@
 package com.example.filmrental;
 import MappingClasses.Film;
+import de.jensd.fx.glyphs.GlyphsBuilder;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.GlyphIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcons;
+import de.jensd.fx.glyphs.testapps.AwesomeIconNameComparator;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -12,6 +18,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -24,12 +32,15 @@ import org.hibernate.Session;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class FilmyController implements Initializable {
+
 
     @FXML
     private TableView<Film> tableView;
@@ -42,7 +53,7 @@ public class FilmyController implements Initializable {
     @FXML
     private TableColumn<Film,String> lang;
     @FXML
-    private TableColumn<Film, Date> date;
+    private TableColumn<Film, String> date;
     @FXML
     private TableColumn<Film,String> kraj;
     @FXML
@@ -57,11 +68,18 @@ public class FilmyController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
         id.setCellValueFactory(new PropertyValueFactory<Film,Integer>("id"));
         tytul.setCellValueFactory(new PropertyValueFactory<Film,String>("tytul"));
         time.setCellValueFactory(new PropertyValueFactory<Film,Integer>("czasTrwania"));
         lang.setCellValueFactory(new PropertyValueFactory<Film,String>("jezyk"));
-        date.setCellValueFactory(new PropertyValueFactory<Film,Date>("dataPremiery"));
+        date.setCellValueFactory(Job -> {
+            SimpleStringProperty property = new SimpleStringProperty();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            property.setValue(dateFormat.format(Job.getValue().getDataPremiery()));
+            return property;
+        });
         kraj.setCellValueFactory(new PropertyValueFactory<Film,String>("kraj"));
         //guziki
         Callback<TableColumn<Film,String>,TableCell<Film,String>> cellFactory = (param) ->{
@@ -74,7 +92,16 @@ public class FilmyController implements Initializable {
                       setText(null);
                   }
                   else{
-                    final Button editButton = new Button("EDIT");
+                      Color paint = new Color(0.3882, 0.3725, 0.7804, 1.0);
+                      GlyphIcon pen = GlyphsBuilder.create(FontAwesomeIcon.class)
+                              .glyph(FontAwesomeIcons.PENCIL)
+                              .build();
+                      pen.setFill(paint);
+                      pen.setSize("1.8em");
+
+                      Button editButton = new Button();
+                    editButton.getStyleClass().add("editTableBtn");
+                    editButton.setGraphic(pen);
                     editButton.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
                     editButton.setOnAction(event ->{
                         Film f = getTableView().getItems().get(getIndex());
@@ -101,8 +128,19 @@ public class FilmyController implements Initializable {
                         setText(null);
                     }
                     else{
-                        final Button deleteButton = new Button("DELETE");
+                        Color paint = new Color(0.9176, 0.3333, 0.3333, 1.0);
+
+                        GlyphIcon trash = GlyphsBuilder.create(FontAwesomeIcon.class)
+                                .glyph(FontAwesomeIcons.TRASH)
+                                .build();
+                        trash.setFill(paint);
+                        trash.setSize("1.8em");
+
+                        final Button deleteButton = new Button();
+                        deleteButton.setGraphic(trash);
+                        deleteButton.getStyleClass().add("delTableBtn");
                         deleteButton.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
+
                         deleteButton.setOnAction(event ->{
                             Film f = getTableView().getItems().get(getIndex());
                             try {

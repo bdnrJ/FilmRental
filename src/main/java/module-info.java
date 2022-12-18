@@ -5,6 +5,7 @@ open module com.example.filmrental {
     requires java.naming;
     requires java.sql;
     requires jakarta.persistence;
+    requires fontawesomefx;
 
 
     exports com.example.filmrental;

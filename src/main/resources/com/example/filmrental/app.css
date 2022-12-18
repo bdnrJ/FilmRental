@@ -76,3 +76,14 @@
     -fx-background-radius: 20px;
     -fx-text-fill: #630fc7;
 }
+
+.delTableBtn{
+    -fx-text-fill: #630fc7;
+    -fx-cursor: hand;
+    -fx-fill: #ea5555;
+}
+
+.editTableBtn{
+    -fx-text-fill: #999fc7;
+    -fx-cursor: hand;
+}

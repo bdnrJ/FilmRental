@@ -47,6 +47,8 @@ public class RejestracjaController {
     @FXML
     private TextField haslo;
 
+    boolean clickable = true;
+
     @FXML
     public void onRegister(){
         //Tworzenie nowego uzytkownika z inputow
@@ -82,7 +84,7 @@ public class RejestracjaController {
         }
 
 
-        boolean clickable = true;
+
         //jesli wszyskite dane sa git jako tako to dodajemy do bazy danych
         if(isImieOk(newUser.getImie()) && isNazwiskoOk(newUser.getNazwisko()) && isTelNumberOk(newUser.getNr_tel()) && isHasloOk(newUser.getHaslo()) && clickable) {
             boolean x = true;

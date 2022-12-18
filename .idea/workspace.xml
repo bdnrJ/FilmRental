@@ -7,7 +7,12 @@
     <list default="true" id="1beb1e20-e477-484d-87d2-2b9ae7c66ae4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filmrental/FilmyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filmrental/FilmyController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filmrental/PromptEdytujFilmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filmrental/PromptEdytujFilmController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filmrental/RejestracjaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filmrental/RejestracjaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/filmy.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/filmy.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,18 +29,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="JpbToolWindowState">
-    <option name="myId2FirstActivated">
-      <map>
-        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
-      </map>
-    </option>
-    <option name="myId2Visible">
-      <map>
-        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
-      </map>
-    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -54,10 +47,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_directory_selection": "C:/Users/reset/Desktop/FilmRental/FilmRental/FilmRental/src/main/java/com/example/filmrental",
+    "last_opened_file_path": "C:/Users/reset/Desktop/FilmRental/FilmRental/FilmRental/src/main/resources/com/example/filmrental",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\reset\Desktop\FilmRental\FilmRental\FilmRental\src\main\resources\com\example\filmrental" />

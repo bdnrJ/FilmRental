@@ -23,7 +23,7 @@
                   </Text>
                   <Button layoutX="493.0" layoutY="28.0" mnemonicParsing="false" onAction="#goToAddFilm" prefHeight="40.0" prefWidth="164.0" styleClass="styledbuttonround" text="Dodaj Film">
                      <graphic>
-                        <FontAwesomeIcon fill="WHITE" glyphName="PLUS" text="" />
+                        <FontAwesomeIcon fill="#4c2cbf" glyphName="PLUS" text="" />
                      </graphic>
                   </Button>
                   <TextField fx:id="searchBox" layoutX="269.0" layoutY="28.0" onKeyTyped="#search" prefHeight="40.0" prefWidth="175.0" styleClass="input" />
@@ -35,13 +35,13 @@
       <TableView fx:id="tableView" layoutY="96.0" prefHeight="411.0" prefWidth="683.0" styleClass="tablice">
         <columns>
           <TableColumn fx:id="id" prefWidth="31.0" text="Id" />
-          <TableColumn fx:id="tytul" prefWidth="217.0" text="Tytuł" />
-            <TableColumn fx:id="time" prefWidth="77.0" text="Czas trwania" />
+          <TableColumn fx:id="tytul" prefWidth="210.0" text="Tytuł" />
+            <TableColumn fx:id="time" prefWidth="84.0" text="Czas trwania" />
             <TableColumn fx:id="lang" prefWidth="53.0" text="Język" />
-            <TableColumn fx:id="date" prefWidth="111.0" text="Data premiery" />
-            <TableColumn fx:id="kraj" minWidth="0.0" prefWidth="78.0" text="Kraj" />
-            <TableColumn fx:id="editCol" minWidth="0.0" prefWidth="61.0" text="Edytuj" />
-            <TableColumn fx:id="deleteCol" minWidth="0.0" prefWidth="53.0" text="Usun" />
+            <TableColumn fx:id="date" prefWidth="87.0" text="Data premiery" />
+            <TableColumn fx:id="kraj" minWidth="0.0" prefWidth="102.0" text="Kraj" />
+            <TableColumn fx:id="editCol" minWidth="0.0" prefWidth="47.0" text="Edytuj" />
+            <TableColumn fx:id="deleteCol" minWidth="0.0" prefWidth="67.0" text="Usun" />
         </columns>
       </TableView>
    </children>
