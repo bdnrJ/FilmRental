@@ -1,6 +1,7 @@
 package com.example.filmrental;
 
 import MappingClasses.Film;
+import MappingClasses.Uzytkownik;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,20 +13,21 @@ import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
-public class PromptDeleteFilmController {
-
+public class AdminUserPromptDeleteController {
     @FXML
     private Text id;
     @FXML
-    private Text tytul;
+    private Text imie;
+    @FXML
+    private Text nazwisko;
+    @FXML
+    private Text nr_tel;
     @FXML
     private Button delete;
     @FXML
     private Button exit;
 
-    Film x = new Film();
-
-
+    Uzytkownik x = new Uzytkownik();
 
     public void initialize(){
 
@@ -40,15 +42,18 @@ public class PromptDeleteFilmController {
 
     public void getData(){
         Stage stage = (Stage) id.getScene().getWindow();
-        x = (Film) stage.getUserData();
+        x = (Uzytkownik) stage.getUserData();
         id.setText(String.valueOf(x.getId()));
-        tytul.setText(x.getTytul());
+        imie.setText(x.getImie());
+        nazwisko.setText(x.getNazwisko());
+        nr_tel.setText(x.getNr_tel());
+
     }
 
     public void usunFilm(){
         Configuration config = new Configuration().configure();
 
-        config.addAnnotatedClass(MappingClasses.Film.class);
+        config.addAnnotatedClass(MappingClasses.Uzytkownik.class);
 
         StandardServiceRegistryBuilder builder =
                 new StandardServiceRegistryBuilder().applySettings(config.getProperties());
@@ -66,7 +71,9 @@ public class PromptDeleteFilmController {
     }
 
     public void exit(){
-            Stage stage1 = (Stage) id.getScene().getWindow();
-            stage1.close();
+        Stage stage1 = (Stage) id.getScene().getWindow();
+        stage1.close();
     }
+
+
 }

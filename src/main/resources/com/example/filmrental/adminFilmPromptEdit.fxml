@@ -7,9 +7,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="525.0" prefWidth="400.0" style="-fx-background-color: #20212C;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.filmrental.dodajFilmController">
+<AnchorPane prefHeight="525.0" prefWidth="400.0" style="-fx-background-color: #20212C;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.filmrental.AdminFilmPromptEditController">
    <children>
-      <Text fill="WHITE" layoutX="26.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dodaj Film">
+      <Text fill="WHITE" layoutX="26.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edytuj Film">
          <font>
             <Font size="51.0" />
          </font>
@@ -37,7 +37,7 @@
       <TextField fx:id="tytul" layoutX="26.0" layoutY="130.0" prefHeight="36.0" prefWidth="343.0" styleClass="input" />
       <TextField fx:id="czasTrwania" layoutX="26.0" layoutY="197.0" prefHeight="36.0" prefWidth="343.0" styleClass="input" />
       <TextField fx:id="jezyk" layoutX="26.0" layoutY="263.0" prefHeight="36.0" prefWidth="343.0" styleClass="input" />
-      <Button layoutX="29.0" layoutY="467.0" mnemonicParsing="false" onAction="#onAdd" prefHeight="30.0" prefWidth="343.0" styleClass="styledbuttonround" text="Dodaj" />
+      <Button layoutX="29.0" layoutY="467.0" mnemonicParsing="false" onAction="#onEdit" prefHeight="30.0" prefWidth="343.0" styleClass="styledbuttonround" text="Edytuj" />
       <Label fx:id="tytulAlert" layoutX="289.0" layoutY="110.0" prefHeight="18.0" prefWidth="83.0" text="od 2 do 40 liter" textFill="RED" visible="false" />
       <Label fx:id="czasTrwaniaAlert" layoutX="307.0" layoutY="178.0" text="Max 3 cyfry" textFill="#ee0000" visible="false" />
       <Label fx:id="jezykAlert" layoutX="281.0" layoutY="243.0" prefHeight="18.0" prefWidth="83.0" text="od 2 do 30 liter" textFill="RED" visible="false" />
@@ -52,5 +52,15 @@
       <Label fx:id="krajAlert" layoutX="290.0" layoutY="374.0" text="od 2 do 24 liter" textFill="RED" visible="false" />
       <Label fx:id="dataPremieryAlert" layoutX="308.0" layoutY="311.0" text="Zly format!" textFill="RED" visible="false" />
       <Label layoutX="120.0" layoutY="179.0" text="(w minutach)" textFill="#c4c0c0" />
+      <Text fill="WHITE" layoutX="26.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID: ">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="id" fill="#6245e8" layoutX="46.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

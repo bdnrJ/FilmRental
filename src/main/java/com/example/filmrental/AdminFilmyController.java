@@ -4,7 +4,6 @@ import de.jensd.fx.glyphs.GlyphsBuilder;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.GlyphIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcons;
-import de.jensd.fx.glyphs.testapps.AwesomeIconNameComparator;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import javafx.beans.property.SimpleStringProperty;
@@ -19,7 +18,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -34,12 +32,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class FilmyController implements Initializable {
+public class AdminFilmyController implements Initializable {
 
 
     @FXML
@@ -205,10 +201,18 @@ public class FilmyController implements Initializable {
         transaction.commit();
         session.close();
     }
+    public void reFetchAndRedisplay(){
+        fetchData();
+        observableList.removeAll(observableList);
+        for(Film temp : filmy){
+            observableList.add(temp);
+        }
+        tableView.setItems(observableList);
+    }
 
     @FXML
     public void goToAddFilm() throws IOException {
-        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("dodajFilm.fxml"));
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("adminDodajFilm.fxml"));
         Parent root = fxmlloader.load();
         root.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
         Stage stage = new Stage();
@@ -227,7 +231,7 @@ public class FilmyController implements Initializable {
 
     @FXML
     public void goToEdytujFilmPrompt(Film film) throws IOException{
-        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("promptEdytujFilm.fxml"));
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("adminFilmPromptEdit.fxml"));
         Parent root = fxmlloader.load();
         root.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
         Stage stage = new Stage();
@@ -247,7 +251,7 @@ public class FilmyController implements Initializable {
 
     @FXML
     public void goToDeletePrompt(Film film) throws IOException{
-        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("promptDeleteFilm.fxml"));
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("adminFilmPromptDelete.fxml"));
         Parent root = fxmlloader.load();
         root.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
         Stage stage = new Stage();
@@ -264,12 +268,5 @@ public class FilmyController implements Initializable {
             }
         });
     }
-    public void reFetchAndRedisplay(){
-        fetchData();
-        observableList.removeAll(observableList);
-        for(Film temp : filmy){
-            observableList.add(temp);
-        }
-        tableView.setItems(observableList);
-    }
+
 }

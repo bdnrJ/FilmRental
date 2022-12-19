@@ -10,13 +10,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="507.0" prefWidth="683.0" style="-fx-background-color: #20212C;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.filmrental.FilmyController">
+<AnchorPane prefHeight="507.0" prefWidth="683.0" style="-fx-background-color: #20212C;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.filmrental.AdminFilmyController">
    <children>
       <VBox prefHeight="96.0" prefWidth="683.0" style="-fx-background-color: #2B2C37;">
          <children>
             <AnchorPane prefHeight="100.0" prefWidth="650.0" style="-fx-background-color: #2B2C37;">
                <children>
-                  <Text fill="WHITE" layoutX="24.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filmy">
+                  <Text fill="WHITE" layoutX="24.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filmy">
                      <font>
                         <Font size="30.0" />
                      </font>
@@ -35,13 +35,13 @@
       <TableView fx:id="tableView" layoutY="96.0" prefHeight="411.0" prefWidth="683.0" styleClass="tablice">
         <columns>
           <TableColumn fx:id="id" prefWidth="31.0" text="Id" />
-          <TableColumn fx:id="tytul" prefWidth="210.0" text="Tytuł" />
-            <TableColumn fx:id="time" prefWidth="84.0" text="Czas trwania" />
-            <TableColumn fx:id="lang" prefWidth="53.0" text="Język" />
-            <TableColumn fx:id="date" prefWidth="87.0" text="Data premiery" />
-            <TableColumn fx:id="kraj" minWidth="0.0" prefWidth="102.0" text="Kraj" />
-            <TableColumn fx:id="editCol" minWidth="0.0" prefWidth="47.0" text="Edytuj" />
-            <TableColumn fx:id="deleteCol" minWidth="0.0" prefWidth="67.0" text="Usun" />
+          <TableColumn fx:id="tytul" prefWidth="215.0" text="Tytuł" />
+            <TableColumn fx:id="time" prefWidth="79.0" text="Czas trwania" />
+            <TableColumn fx:id="lang" prefWidth="77.0" text="Język" />
+            <TableColumn fx:id="date" prefWidth="103.0" text="Data premiery" />
+            <TableColumn fx:id="kraj" minWidth="0.0" prefWidth="84.0" text="Kraj" />
+            <TableColumn fx:id="editCol" editable="false" minWidth="0.0" prefWidth="41.0" resizable="false" sortable="false" text="Edytuj" />
+            <TableColumn fx:id="deleteCol" editable="false" minWidth="0.0" prefWidth="52.0" resizable="false" sortable="false" text="Usun" />
         </columns>
       </TableView>
    </children>
