@@ -20,7 +20,7 @@
                         <Font size="30.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="searchBox" layoutX="464.0" layoutY="28.0" prefHeight="40.0" prefWidth="175.0" styleClass="input" />
+                  <TextField fx:id="searchBox" layoutX="464.0" layoutY="28.0" onKeyTyped="#search" prefHeight="40.0" prefWidth="175.0" styleClass="input" />
                   <FontAwesomeIcon fill="WHITE" glyphName="SEARCH" layoutX="421.0" layoutY="56.0" size="2em" wrappingWidth="34.0" />
                </children>
             </AnchorPane>
@@ -33,7 +33,7 @@
             <TableColumn fx:id="lang" prefWidth="77.0" text="Język" />
             <TableColumn fx:id="date" prefWidth="103.0" text="Data premiery" />
             <TableColumn fx:id="kraj" minWidth="0.0" prefWidth="84.0" text="Kraj" />
-            <TableColumn fx:id="kraj1" minWidth="0.0" prefWidth="123.0" text="Wypożycz" />
+            <TableColumn fx:id="rentCol" minWidth="0.0" prefWidth="123.0" text="Wypożycz" />
         </columns>
       </TableView>
    </children>

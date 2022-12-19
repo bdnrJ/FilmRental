@@ -1,5 +1,6 @@
 package com.example.filmrental;
 
+import MappingClasses.Uzytkownik;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -50,20 +51,23 @@ public class LoginController {
 
 
         if(list.size() == 1){
+
             Query isAdmin = session.createQuery("from Uzytkownik where Nr_tel=:nr_tel and haslo=:haslo AND isAdmin=1");
             isAdmin.setParameter("nr_tel",nr_tel.getText());
             isAdmin.setParameter("haslo",haslo.getText());
             List listA = isAdmin.list();
+
             if(listA.size() == 1) {
-                System.out.println("admin");
                 goToAdminPanel();
                 closeCurrnetWindow();
             }else{
-                System.out.println("plebejusz");
-                goToUserPanel();
+                Uzytkownik x = (Uzytkownik) list.get(0);
+                System.out.println(x);
+                goToUserPanel(x);
                 closeCurrnetWindow();
             }
-            System.out.println(list.get(0));
+
+
         }else{
             //nie ma takiego numeru
             failAlert.setVisible(true);
@@ -99,12 +103,13 @@ public class LoginController {
     }
 
     @FXML
-    public void goToUserPanel() throws IOException {
+    public void goToUserPanel(Uzytkownik uzytkownik) throws IOException {
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("userPanel.fxml"));
         Parent root = (Parent) fxmlloader.load();
         root.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
         Stage stage = new Stage();
         stage.setTitle("User panel");
+        stage.setUserData(uzytkownik);
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.show();

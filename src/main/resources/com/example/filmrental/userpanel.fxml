@@ -22,7 +22,7 @@
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text fill="WHITE" layoutX="51.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="username" wrappingWidth="100.13671875">
+                        <Text fx:id="username" fill="WHITE" layoutX="51.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="username" wrappingWidth="100.13671875">
                            <font>
                               <Font size="20.0" />
                            </font>
