@@ -180,6 +180,14 @@ public class UserFilmyController implements Initializable{
         stage.setTitle("Wynajem Filmu");
         stage.setScene(new Scene(root));
         stage.setResizable(false);
+
+        Stage stagee = (Stage) tableView.getScene().getWindow();
+        Uzytkownik x = (Uzytkownik) stagee.getUserData();
+
+        UserFilmPromptRent controller = fxmlloader.getController();
+        controller.initUser(x);
+
+
         stage.show();
         stage.setOnHidden(new EventHandler<WindowEvent>(){
             public void handle(WindowEvent we) {
