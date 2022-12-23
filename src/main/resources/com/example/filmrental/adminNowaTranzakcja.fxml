@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="507.0" prefWidth="683.0" style="-fx-background-color: #20212C;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.filmrental.AdminNowaTranzakcjaController">
+   <children>
+      <VBox prefHeight="96.0" prefWidth="683.0" style="-fx-background-color: #20212C;">
+         <children>
+            <AnchorPane prefHeight="100.0" prefWidth="650.0" style="-fx-background-color: #2B2C37;">
+               <children>
+                  <Text fill="WHITE" layoutX="24.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tworzenie nowej tranzakcji">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="475.0" layoutY="28.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="170.0" styleClass="styledbuttonround" text="Dodaj Tranzakcje" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <TableView fx:id="tableViewFilm" layoutY="283.0" prefHeight="223.0" prefWidth="406.0" styleClass="tablice" visible="false">
+        <columns>
+            <TableColumn fx:id="id" prefWidth="38.39999198913574" text="Id" />
+          <TableColumn fx:id="tytul" prefWidth="264.8000259399414" text="Tytuł" />
+            <TableColumn fx:id="date" prefWidth="100.0" text="Data premiery" />
+        </columns>
+      </TableView>
+      <Text fill="WHITE" layoutX="29.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wybrany Użytkownik:">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text fx:id="user" fill="WHITE" layoutX="215.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="wybierz uzytkownika">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="89.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wybrany Film:">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text fx:id="film" fill="WHITE" layoutX="215.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="wybierz film">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="38.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data wyporzyczenia:">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text fx:id="todayDate" fill="WHITE" layoutX="217.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9999-99-99">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="101.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data Zwrotu:">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="159.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Koszt:">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text fx:id="koszt" fill="WHITE" layoutX="215.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <TextField fx:id="searchBoxFilm" layoutX="470.0" layoutY="375.0" onKeyTyped="#searchFilm" prefHeight="40.0" prefWidth="175.0" styleClass="input" visible="false" />
+      <FontAwesomeIcon fill="WHITE" glyphName="SEARCH" layoutX="436.0" layoutY="404.0" size="2em" text="" wrappingWidth="34.0" />
+      <Button layoutX="406.0" layoutY="280.0" mnemonicParsing="false" onAction="#switcherooUzytkownik" prefHeight="34.0" prefWidth="276.0" text="Uzytkownicy" />
+      <Button layoutX="406.0" layoutY="314.0" mnemonicParsing="false" onAction="#switcherooFilmy" prefHeight="34.0" prefWidth="276.0" text="Filmy" />
+      <ChoiceBox fx:id="okresWynajmu" layoutX="331.0" layoutY="200.0" prefHeight="24.0" prefWidth="150.0" />
+      <Text fx:id="dataZwrotu" fill="WHITE" layoutX="217.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9999-99-99">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Button fx:id="selectFilmBtn" layoutX="442.0" layoutY="449.0" mnemonicParsing="false" onAction="#selectFilm" prefHeight="34.0" prefWidth="203.0" text="Wybierz" visible="false" />
+      <TableView fx:id="tableViewUzytkownik" layoutY="280.0" prefHeight="230.0" prefWidth="406.0" styleClass="tablice">
+         <columns>
+            <TableColumn fx:id="idUzytkownika" minWidth="0.0" prefWidth="40.799957633018494" text="id" />
+            <TableColumn fx:id="imie" minWidth="0.0" text="imie" />
+            <TableColumn fx:id="nazwisko" minWidth="0.0" prefWidth="184.00000762939453" text="nazwisko" />
+            <TableColumn fx:id="nrtel" minWidth="0.0" prefWidth="103.20001220703125" text="nrTelefonu" />
+         </columns>
+      </TableView>
+      <TextField fx:id="searchBoxUzytkownik" layoutX="470.0" layoutY="375.0" onKeyTyped="#searchUzytkownik" prefHeight="40.0" prefWidth="175.0" styleClass="input" />
+      <Button fx:id="selectUzytkownikBtn" layoutX="442.0" layoutY="449.0" mnemonicParsing="false" onAction="#selectUzytkownik" prefHeight="34.0" prefWidth="203.0" text="Wybierz" />
+   </children>
+</AnchorPane>

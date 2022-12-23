@@ -18,11 +18,9 @@ public class AdminPanelController implements Initializable {
     private BorderPane bp;
     @FXML
     private AnchorPane ap;
-
     @FXML
-    private void home(MouseEvent event){
+    private AnchorPane homeAnchorPane;
 
-    }
 
     @FXML
     private void uzytkownicy(MouseEvent event) throws IOException {
@@ -34,6 +32,19 @@ public class AdminPanelController implements Initializable {
     private void filmy() throws IOException {
         Parent fxml = FXMLLoader.load(getClass().getResource("adminFilmy.fxml"));
         bp.setCenter(fxml);
+    }
+
+    @FXML
+    private void nowaTranzakcja() throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("adminNowaTranzakcja.fxml"));
+        bp.setCenter(fxml);
+    }
+
+
+    @FXML
+    private void home(){
+        System.out.println("dashdask");
+        bp.setCenter(homeAnchorPane);
     }
 
 
