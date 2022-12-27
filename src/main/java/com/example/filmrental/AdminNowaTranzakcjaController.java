@@ -1,6 +1,8 @@
 package com.example.filmrental;
 
 import MappingClasses.Film;
+import MappingClasses.Item;
+import MappingClasses.Tranzakcje;
 import MappingClasses.Uzytkownik;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
@@ -21,11 +23,9 @@ import org.hibernate.cfg.Configuration;
 
 import java.net.URL;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class AdminNowaTranzakcjaController implements Initializable {
 
@@ -51,14 +51,48 @@ public class AdminNowaTranzakcjaController implements Initializable {
     private TableColumn<Film, String> date;
     @FXML
     private Text user;
+
     @FXML
     private Text film;
+    @FXML
+    private Text film1;
+    @FXML
+    private Text film2;
+    @FXML
+    private Text film3;
+    @FXML
+    private Text film4;
+
+    @FXML
+    private Button del;
+
+    @FXML
+    private Button del1;
+
+    @FXML
+    private Button del2;
+
+    @FXML
+    private Button del3;
+
+    @FXML
+    private Button del4;
+
     @FXML
     private Text koszt;
     @FXML
     private Text todayDate;
     @FXML
     private Text dataZwrotu;
+
+    @FXML
+    private Text alertAlreadyUsed;
+    @FXML
+    private Text alertFilmCap;
+    @FXML
+    private Text alertUserNotSelected;
+    @FXML
+    private Text alertNoneFilmSelected;
 
     @FXML
     private ChoiceBox<String> okresWynajmu;
@@ -78,6 +112,9 @@ public class AdminNowaTranzakcjaController implements Initializable {
     Uzytkownik wybranyUzytkownik = new Uzytkownik();
     Date today = new Date();
 
+    private ArrayList<Film> wybraneFilmy = new ArrayList<>();
+
+
     private List<Film> filmy;
     ObservableList<Film> observableListFilmy = FXCollections.observableArrayList();
 
@@ -95,7 +132,7 @@ public class AdminNowaTranzakcjaController implements Initializable {
 
         okresWynajmu.getItems().addAll(opcje);
         okresWynajmu.setValue("7 dni");
-        okresWynajmu.setOnAction(this::getDataZwrotu);
+        okresWynajmu.setOnAction(this::setDataZwrotuAndKoszt);
 
         id.setCellValueFactory(new PropertyValueFactory<Film,Integer>("id"));
         tytul.setCellValueFactory(new PropertyValueFactory<Film,String>("tytul"));
@@ -165,12 +202,116 @@ public class AdminNowaTranzakcjaController implements Initializable {
     }
 
     public void selectFilm(){
+        alertFilmCap.setVisible(false);
+        alertAlreadyUsed.setVisible(false);
         if(tableViewFilm.getSelectionModel().getSelectedItem() != null) {
-            wybranyFilm = tableViewFilm.getSelectionModel().getSelectedItem();
-            DateFormat dateFormat = new SimpleDateFormat("yyyy");
-            String g = dateFormat.format(wybranyFilm.getDataPremiery());
-            film.setText(wybranyFilm.getTytul() + " (" + g + ")");
+            if(wybraneFilmy.size() < 5) {
+                if (!wybraneFilmy.contains(tableViewFilm.getSelectionModel().getSelectedItem())) {
+
+
+                    wybranyFilm = tableViewFilm.getSelectionModel().getSelectedItem();
+                    wybraneFilmy.add(wybranyFilm);
+                    alertNoneFilmSelected.setVisible(false);
+                    setDataZwrotuAndKoszt(null);
+                    populateArrayLook();
+                } else {
+                    alertAlreadyUsed.setVisible(true);
+                }
+            } else {
+                alertFilmCap.setVisible(true);
+            }
         }
+    }
+
+    public Text ktoryFilm(int arraySize){
+        switch (arraySize){
+            case 0:{
+                return film;
+            }
+            case 1: {
+                return film1;
+            }
+            case 2: {
+                return film2;
+            }
+            case 3: {
+                return film3;
+            }
+            case 4: {
+                return film4;
+            }
+        }
+        return film;
+    }
+
+    public Button ktoryGuzik(int arraySize){
+        switch (arraySize){
+            case 0:{
+                return del;
+            }
+            case 1: {
+                return del1;
+            }
+            case 2: {
+                return del2;
+            }
+            case 3: {
+                return del3;
+            }
+            case 4: {
+                return del4;
+            }
+        }
+        return del1;
+    }
+
+    public void delete(ActionEvent event){
+        //XD
+        if(event.getSource() == del){
+            wybraneFilmy.remove(0);
+        }
+        if(event.getSource() == del1){
+            wybraneFilmy.remove(1);
+        }
+        if(event.getSource() == del2){
+            wybraneFilmy.remove(2);
+        }
+        if(event.getSource() == del3){
+            wybraneFilmy.remove(3);
+        }
+        if(event.getSource() == del4){
+            wybraneFilmy.remove(4);
+        }
+
+        setDataZwrotuAndKoszt(null);
+        populateArrayLook();
+    }
+
+    public void populateArrayLook(){
+        setAllInvisible();
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy");
+
+        for(int i=0; i < wybraneFilmy.size(); i++){
+            String g = dateFormat.format(wybraneFilmy.get(i).getDataPremiery());
+            ktoryFilm(i).setText(wybraneFilmy.get(i).getTytul() + " (" + g + ")");
+            ktoryFilm(i).setVisible(true);
+            ktoryGuzik(i).setVisible(true);
+        }
+    }
+
+    public void setAllInvisible(){
+        film.setVisible(false);
+        film1.setVisible(false);
+        film2.setVisible(false);
+        film3.setVisible(false);
+        film4.setVisible(false);
+
+        del.setVisible(false);
+        del1.setVisible(false);
+        del2.setVisible(false);
+        del3.setVisible(false);
+        del4.setVisible(false);
     }
 
     public void setDataZwrotu(int x){
@@ -182,10 +323,12 @@ public class AdminNowaTranzakcjaController implements Initializable {
     }
 
     public void setKoszt(int x){
-        koszt.setText(+x+"$");
+        int cost = x*wybraneFilmy.size();
+        if(cost == 0 ) cost = x;
+        koszt.setText(+cost+"$");
     }
 
-    public void getDataZwrotu(ActionEvent event){
+    public void setDataZwrotuAndKoszt(ActionEvent event){
         String wybor = okresWynajmu.getValue();
         switch (wybor) {
             case "7 dni":{
@@ -270,9 +413,66 @@ public class AdminNowaTranzakcjaController implements Initializable {
 
     public void selectUzytkownik(){
         if(tableViewUzytkownik.getSelectionModel().getSelectedItem() != null) {
+            alertUserNotSelected.setVisible(false);
             wybranyUzytkownik = tableViewUzytkownik.getSelectionModel().getSelectedItem();
             user.setText(wybranyUzytkownik.getNazwisko()+" "+wybranyUzytkownik.getImie()
             +" "+wybranyUzytkownik.getNr_tel());
+        }
+    }
+
+    public void addTranzakcja() throws ParseException {
+        alertUserNotSelected.setVisible(false);
+        alertNoneFilmSelected.setVisible(false);
+        if(wybranyUzytkownik.getImie() != null) {
+            if(wybraneFilmy.size()!=0) {
+                Configuration config = new Configuration().configure();
+
+                config.addAnnotatedClass(MappingClasses.Tranzakcje.class);
+                config.addAnnotatedClass(MappingClasses.Item.class);
+
+                StandardServiceRegistryBuilder builder =
+                        new StandardServiceRegistryBuilder().applySettings(config.getProperties());
+                SessionFactory factory = config.buildSessionFactory(builder.build());
+                Session session = factory.openSession();
+                Transaction transaction = session.beginTransaction();
+
+                Tranzakcje T = new Tranzakcje();
+                String d_zwrotu = dataZwrotu.getText();
+                Date data_zwrotu = new SimpleDateFormat("yyyy-MM-dd").parse(d_zwrotu);
+
+
+                T.setId_uzytkownika(wybranyUzytkownik.getId());
+                T.setDone(false);
+                T.setProbyKontaktu(0);
+                T.setKoszt(Integer.parseInt(koszt.getText().replace("$", "")));
+                T.setData_tranzakcji(today);
+                T.setData_zwrotu(data_zwrotu);
+                T.setFilmyCounter(wybraneFilmy.size());
+
+                Set<Item> itemSet = new HashSet<Item>();
+
+
+                for (int i = 0; i < wybraneFilmy.size(); i++) {
+                    Item temp = new Item(wybraneFilmy.get(i).getId(), T);
+                    itemSet.add(temp);
+                }
+
+                session.persist(T);
+
+                for (int i = 0; i < wybraneFilmy.size(); i++) {
+                    Item temp = new Item(wybraneFilmy.get(i).getId(), T);
+                    session.persist(temp);
+                }
+
+                transaction.commit();
+                session.close();
+            } else {
+
+                alertNoneFilmSelected.setVisible(true);
+            }
+        } else {
+            if(wybraneFilmy.size() == 0) alertNoneFilmSelected.setVisible(true);
+            alertUserNotSelected.setVisible(true);
         }
     }
 }

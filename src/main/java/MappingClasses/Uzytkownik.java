@@ -2,6 +2,8 @@ package MappingClasses;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "user")
 public class Uzytkownik {
@@ -23,6 +25,7 @@ public class Uzytkownik {
 
     @Column(name ="isAdmin")
     private int isAdmin;
+
 
     public Uzytkownik(){
 

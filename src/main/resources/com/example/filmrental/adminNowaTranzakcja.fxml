@@ -22,59 +22,59 @@
                         <Font size="30.0" />
                      </font>
                   </Text>
-                  <Button layoutX="475.0" layoutY="28.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="170.0" styleClass="styledbuttonround" text="Dodaj Tranzakcje" />
+                  <Button layoutX="475.0" layoutY="28.0" mnemonicParsing="false" onAction="#addTranzakcja" prefHeight="40.0" prefWidth="170.0" styleClass="styledbuttonround" text="Dodaj Tranzakcje" />
                </children>
             </AnchorPane>
          </children>
       </VBox>
-      <TableView fx:id="tableViewFilm" layoutY="283.0" prefHeight="223.0" prefWidth="406.0" styleClass="tablice" visible="false">
+      <TableView fx:id="tableViewFilm" layoutY="280.0" prefHeight="230.0" prefWidth="406.0" styleClass="tablice" visible="false">
         <columns>
             <TableColumn fx:id="id" prefWidth="38.39999198913574" text="Id" />
           <TableColumn fx:id="tytul" prefWidth="264.8000259399414" text="Tytuł" />
-            <TableColumn fx:id="date" prefWidth="100.0" text="Data premiery" />
+            <TableColumn fx:id="date" prefWidth="101.5999816894531" text="Data premiery" />
         </columns>
       </TableView>
-      <Text fill="WHITE" layoutX="29.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wybrany Użytkownik:">
+      <Text fill="WHITE" layoutX="14.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wybrany Użytkownik:">
          <font>
             <Font size="19.0" />
          </font>
       </Text>
-      <Text fx:id="user" fill="WHITE" layoutX="215.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="wybierz uzytkownika">
+      <Text fx:id="user" fill="WHITE" layoutX="30.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="wybierz uzytkownika">
          <font>
             <Font size="19.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="89.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wybrany Film:">
+      <Text fill="WHITE" layoutX="400.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wybrane Filmy:">
          <font>
             <Font size="19.0" />
          </font>
       </Text>
-      <Text fx:id="film" fill="WHITE" layoutX="215.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="wybierz film">
+      <Text fx:id="film" fill="WHITE" layoutX="414.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="wybierz film" visible="false">
          <font>
             <Font size="19.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="38.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data wyporzyczenia:">
+      <Text fill="WHITE" layoutX="14.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data wyporzyczenia:">
          <font>
             <Font size="19.0" />
          </font>
       </Text>
-      <Text fx:id="todayDate" fill="WHITE" layoutX="217.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9999-99-99">
+      <Text fx:id="todayDate" fill="WHITE" layoutX="194.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9999-99-99">
          <font>
             <Font size="19.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="101.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data Zwrotu:">
+      <Text fill="WHITE" layoutX="14.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data Zwrotu:">
          <font>
             <Font size="19.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="159.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Koszt:">
+      <Text fill="WHITE" layoutX="14.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Koszt:">
          <font>
             <Font size="19.0" />
          </font>
       </Text>
-      <Text fx:id="koszt" fill="WHITE" layoutX="215.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
+      <Text fx:id="koszt" fill="WHITE" layoutX="68.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
          <font>
             <Font size="19.0" />
          </font>
@@ -83,8 +83,8 @@
       <FontAwesomeIcon fill="WHITE" glyphName="SEARCH" layoutX="436.0" layoutY="404.0" size="2em" text="" wrappingWidth="34.0" />
       <Button layoutX="406.0" layoutY="280.0" mnemonicParsing="false" onAction="#switcherooUzytkownik" prefHeight="34.0" prefWidth="276.0" text="Uzytkownicy" />
       <Button layoutX="406.0" layoutY="314.0" mnemonicParsing="false" onAction="#switcherooFilmy" prefHeight="34.0" prefWidth="276.0" text="Filmy" />
-      <ChoiceBox fx:id="okresWynajmu" layoutX="331.0" layoutY="200.0" prefHeight="24.0" prefWidth="150.0" />
-      <Text fx:id="dataZwrotu" fill="WHITE" layoutX="217.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9999-99-99">
+      <ChoiceBox fx:id="okresWynajmu" layoutX="243.0" layoutY="177.0" prefHeight="26.0" prefWidth="90.0" />
+      <Text fx:id="dataZwrotu" fill="WHITE" layoutX="135.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9999-99-99">
          <font>
             <Font size="19.0" />
          </font>
@@ -100,5 +100,70 @@
       </TableView>
       <TextField fx:id="searchBoxUzytkownik" layoutX="470.0" layoutY="375.0" onKeyTyped="#searchUzytkownik" prefHeight="40.0" prefWidth="175.0" styleClass="input" />
       <Button fx:id="selectUzytkownikBtn" layoutX="442.0" layoutY="449.0" mnemonicParsing="false" onAction="#selectUzytkownik" prefHeight="34.0" prefWidth="203.0" text="Wybierz" />
+      <Text fx:id="film1" fill="WHITE" layoutX="414.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="wybierz film" visible="false">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text fx:id="film2" fill="WHITE" layoutX="414.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="wybierz film" visible="false">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text fx:id="film3" fill="WHITE" layoutX="414.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="wybierz film" visible="false">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text fx:id="film4" fill="WHITE" layoutX="414.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="wybierz film" visible="false">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Button fx:id="del" layoutX="382.0" layoutY="123.0" mnemonicParsing="false" onAction="#delete" prefHeight="26.0" prefWidth="20.0" style="-fx-background-color: transparent;" textFill="RED" visible="false">
+         <graphic>
+            <FontAwesomeIcon fill="RED" glyphName="TRASH" />
+         </graphic>
+      </Button>
+      <Button fx:id="del1" layoutX="382.0" layoutY="151.0" mnemonicParsing="false" onAction="#delete" prefHeight="26.0" prefWidth="20.0" style="-fx-background-color: transparent;" textFill="RED" visible="false">
+         <graphic>
+            <FontAwesomeIcon fill="RED" glyphName="TRASH" />
+         </graphic>
+      </Button>
+      <Button fx:id="del2" layoutX="382.0" layoutY="177.0" mnemonicParsing="false" onAction="#delete" prefHeight="26.0" prefWidth="20.0" style="-fx-background-color: transparent;" textFill="RED" visible="false">
+         <graphic>
+            <FontAwesomeIcon fill="RED" glyphName="TRASH" />
+         </graphic>
+      </Button>
+      <Button fx:id="del3" layoutX="382.0" layoutY="206.0" mnemonicParsing="false" onAction="#delete" prefHeight="26.0" prefWidth="20.0" style="-fx-background-color: transparent;" textFill="RED" visible="false">
+         <graphic>
+            <FontAwesomeIcon fill="RED" glyphName="TRASH" />
+         </graphic>
+      </Button>
+      <Button fx:id="del4" layoutX="382.0" layoutY="233.0" mnemonicParsing="false" onAction="#delete" prefHeight="26.0" prefWidth="20.0" style="-fx-background-color: transparent;" textFill="RED" visible="false">
+         <graphic>
+            <FontAwesomeIcon fill="RED" glyphName="TRASH" />
+         </graphic>
+      </Button>
+      <Text fx:id="alertAlreadyUsed" fill="RED" layoutX="435.0" layoutY="437.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ten film jest już wybrany" visible="false">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="alertFilmCap" fill="RED" layoutX="445.0" layoutY="437.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Maksymalnie 5 filmów" visible="false">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="alertUserNotSelected" fill="RED" layoutX="200.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nie wybrano użytkownika" visible="false">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fx:id="alertNoneFilmSelected" fill="RED" layoutX="445.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nie wybrano żadnego filmu" visible="false" wrappingWidth="196.19140625">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

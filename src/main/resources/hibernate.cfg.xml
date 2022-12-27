@@ -12,5 +12,8 @@
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
         <mapping class="MappingClasses.Uzytkownik"/>
+        <mapping class="MappingClasses.Film"/>
+        <mapping class="MappingClasses.Tranzakcje"/>
+        <mapping class="MappingClasses.Item"/>
     </session-factory>
 </hibernate-configuration>
