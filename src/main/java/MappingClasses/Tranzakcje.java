@@ -35,7 +35,8 @@ public class Tranzakcje {
     @Column(name="filmyCounter")
     private int filmyCounter;
 
-    @OneToMany(mappedBy = "tranzakcja")
+    @Transient
+    @OneToMany(mappedBy = "tranzakcja", targetEntity= MappingClasses.Item.class)
     private Set<Item> items;
 
     public Tranzakcje() {
@@ -104,6 +105,10 @@ public class Tranzakcje {
 
     public void setProbyKontaktu(int probyKontaktu) {
         this.probyKontaktu = probyKontaktu;
+    }
+
+    public int getId() {
+        return id;
     }
 
     @Override

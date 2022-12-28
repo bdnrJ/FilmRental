@@ -42,7 +42,7 @@
                         <FontAwesomeIcon fill="WHITE" glyphName="GROUP" />
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="203.0" style="-fx-text-fill: #ffffff;" styleClass="navBtn" text="Tranzakcje">
+                  <Button mnemonicParsing="false" onAction="#tranzakcje" prefHeight="33.0" prefWidth="203.0" style="-fx-text-fill: #ffffff;" styleClass="navBtn" text="Tranzakcje">
                      <font>
                         <Font size="21.0" />
                      </font>

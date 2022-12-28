@@ -13,7 +13,7 @@ public class Item {
     @Column(name="id_film")
     private int id_film;
 
-    @ManyToOne
+    @ManyToOne(targetEntity= MappingClasses.Tranzakcje.class)
     @JoinColumn(name="id_tranzakcji")
     private Tranzakcje tranzakcja;
 

@@ -40,6 +40,13 @@ public class AdminPanelController implements Initializable {
         bp.setCenter(fxml);
     }
 
+    @FXML
+    private void tranzakcje() throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("adminTranzakcje.fxml"));
+        bp.setCenter(fxml);
+    }
+
+
 
     @FXML
     private void home(){
