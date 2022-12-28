@@ -10,17 +10,25 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
+import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -30,7 +38,10 @@ import java.util.*;
 public class AdminNowaTranzakcjaController implements Initializable {
 
     @FXML
-    private TableView<Uzytkownik> tableViewUzytkownik;
+    private Text sukcesja;
+
+    @FXML
+    private TableView<Uzytkownik    > tableViewUzytkownik;
     @FXML
     private TableColumn<Uzytkownik,Integer> idUzytkownika;
     @FXML
@@ -124,6 +135,8 @@ public class AdminNowaTranzakcjaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        today = new Date();
+
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         todayDate.setText(dateFormat.format(today));
 
@@ -436,36 +449,41 @@ public class AdminNowaTranzakcjaController implements Initializable {
                 Session session = factory.openSession();
                 Transaction transaction = session.beginTransaction();
 
-                Tranzakcje T = new Tranzakcje();
+                Tranzakcje tranzakcja = new Tranzakcje();
                 String d_zwrotu = dataZwrotu.getText();
                 Date data_zwrotu = new SimpleDateFormat("yyyy-MM-dd").parse(d_zwrotu);
 
 
-                T.setId_uzytkownika(wybranyUzytkownik.getId());
-                T.setDone(false);
-                T.setProbyKontaktu(0);
-                T.setKoszt(Integer.parseInt(koszt.getText().replace("$", "")));
-                T.setData_tranzakcji(today);
-                T.setData_zwrotu(data_zwrotu);
-                T.setFilmyCounter(wybraneFilmy.size());
+                tranzakcja.setId_uzytkownika(wybranyUzytkownik.getId());
+                tranzakcja.setDone(false);
+                tranzakcja.setProbyKontaktu(0);
+                tranzakcja.setKoszt(Integer.parseInt(koszt.getText().replace("$", "")));
+                tranzakcja.setData_tranzakcji(today);
+                tranzakcja.setData_zwrotu(data_zwrotu);
+                tranzakcja.setFilmyCounter(wybraneFilmy.size());
 
                 Set<Item> itemSet = new HashSet<Item>();
 
 
                 for (int i = 0; i < wybraneFilmy.size(); i++) {
-                    Item temp = new Item(wybraneFilmy.get(i).getId(), T);
+                    Item temp = new Item(wybraneFilmy.get(i).getId(), tranzakcja);
                     itemSet.add(temp);
                 }
 
-                session.persist(T);
+                session.persist(tranzakcja);
 
                 for (int i = 0; i < wybraneFilmy.size(); i++) {
-                    Item temp = new Item(wybraneFilmy.get(i).getId(), T);
+                    Item temp = new Item(wybraneFilmy.get(i).getId(), tranzakcja);
                     session.persist(temp);
                 }
 
                 transaction.commit();
                 session.close();
+                try {
+                    alertSuccess();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             } else {
 
                 alertNoneFilmSelected.setVisible(true);
@@ -474,5 +492,33 @@ public class AdminNowaTranzakcjaController implements Initializable {
             if(wybraneFilmy.size() == 0) alertNoneFilmSelected.setVisible(true);
             alertUserNotSelected.setVisible(true);
         }
+    }
+
+    @FXML
+    public void alertSuccess() throws IOException {
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("adminNowaTranzakcjaPromptSukces.fxml"));
+        Parent root = fxmlloader.load();
+        root.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
+        Stage stage = new Stage();
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(koszt.getScene().getWindow());
+        stage.setTitle("Tranzakcja");
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.show();
+        stage.setOnHidden(new EventHandler<WindowEvent>(){
+            public void handle(WindowEvent we) {
+                cleanAll();
+            }
+        });
+    }
+
+    private void cleanAll(){
+        wybranyFilm = new Film();
+        wybranyUzytkownik = new Uzytkownik();
+        wybraneFilmy = new ArrayList<>();
+        user.setText("");
+        koszt.setText("7");
+        populateArrayLook();
     }
 }

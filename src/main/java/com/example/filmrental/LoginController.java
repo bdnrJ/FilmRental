@@ -40,8 +40,6 @@ public class LoginController {
         SessionFactory factory = config.buildSessionFactory(builder.build());
         Session session = factory.openSession();
 
-        //FIXME
-        // jesli mi sie zachce to zmien te metody bo sa "stare"
         Query query = session.createQuery("from Uzytkownik where Nr_tel=:nr_tel and haslo=:haslo");
         query.setParameter("nr_tel",nr_tel.getText());
         query.setParameter("haslo",haslo.getText());
