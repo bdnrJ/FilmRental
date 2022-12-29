@@ -10,7 +10,7 @@ import java.util.Set;
 public class Tranzakcje {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="id")
     private int id;
 
@@ -35,8 +35,7 @@ public class Tranzakcje {
     @Column(name="filmyCounter")
     private int filmyCounter;
 
-    @Transient
-    @OneToMany(mappedBy = "tranzakcja", targetEntity= MappingClasses.Item.class)
+    @OneToMany(mappedBy = "tranzakcja", targetEntity= MappingClasses.Item.class, cascade = CascadeType.ALL)
     private Set<Item> items;
 
     public Tranzakcje() {
@@ -122,7 +121,6 @@ public class Tranzakcje {
                 ", isDone=" + isDone +
                 ", probyKontaktu=" + probyKontaktu +
                 ", filmyCounter=" + filmyCounter +
-                ", items=" + items +
                 '}';
     }
 }

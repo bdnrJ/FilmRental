@@ -5,13 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1beb1e20-e477-484d-87d2-2b9ae7c66ae4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/filmrental/AdminTranzakcjeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/adminTranzakcje.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/filmrental/AdminFilmTranzakcjeInfoPrompt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/filmrental/AdminTranzakcjeDeletePrompt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/adminTranzakcjePromptDelete.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/adminTranzakcjePromptInfo.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MappingClasses/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MappingClasses/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MappingClasses/Tranzakcje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MappingClasses/Tranzakcje.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filmrental/AdminPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filmrental/AdminPanelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/adminpanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/adminpanel.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filmrental/AdminTranzakcjeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filmrental/AdminTranzakcjeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/adminTranzakcje.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/adminTranzakcje.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,5 +115,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/filmrental/AdminFilmyController.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
