@@ -103,7 +103,10 @@ public class AdminFilmTranzakcjeInfoPrompt implements Initializable {
         tranzakcjaProbyKontatku.setText(String.valueOf(tranzakcja.getProbyKontaktu()));
         tranzakcjaId.setText(String.valueOf(tranzakcja.getId()));
         tranzakcjaZwrocono.setText("NIE");
-        if(tranzakcja.isDone()) tranzakcjaZwrocono.setText("TAK");
+        if(tranzakcja.isDone()) {
+            tranzakcjaZwrocono.setText("TAK");
+            zwroconeBtn.setVisible(false);
+        }
 
 
         String pattern = "yyyy-MM-dd";
@@ -264,7 +267,6 @@ public class AdminFilmTranzakcjeInfoPrompt implements Initializable {
                 new StandardServiceRegistryBuilder().applySettings(config.getProperties());
         SessionFactory factory = config.buildSessionFactory(builder.build());
         Session session = factory.openSession();
-        Transaction transaction = session.beginTransaction();
 
         Tranzakcje x =(Tranzakcje) session.find(Tranzakcje.class, tranzakcja.getId());
         session.close();

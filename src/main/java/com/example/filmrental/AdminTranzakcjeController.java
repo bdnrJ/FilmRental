@@ -74,6 +74,9 @@ public class AdminTranzakcjeController implements Initializable {
     @FXML
     private TextField searchBox;
 
+    @FXML
+    private CheckBox onlyDone;
+
 
     private List<Tranzakcje> tranzakcje;
     ObservableList<Tranzakcje> observableList = FXCollections.observableArrayList();
@@ -100,7 +103,10 @@ public class AdminTranzakcjeController implements Initializable {
         zwrocono.setCellValueFactory(Job -> {
             SimpleStringProperty property = new SimpleStringProperty();
             property.setValue("NIE");
-            if(Job.getValue().isDone()) property.setValue("TAK");
+            if(Job.getValue().isDone()) {
+                property.setValue("TAK");
+
+            }
             return property;
         });
         proby_kontaktu.setCellValueFactory(new PropertyValueFactory<>("probyKontaktu"));
@@ -148,19 +154,52 @@ public class AdminTranzakcjeController implements Initializable {
         reFetchAndRedisplay();
     }
 
-    public void search(){
+    public void search() {
+
         ObservableList<Tranzakcje> x = FXCollections.observableArrayList();
-        int listLength  = observableList.toArray().length;
-        if(searchBox.getText().isEmpty()){
-            tableView.setItems(observableList);
-            tableView.refresh();
-        }else {
+        int listLength = observableList.toArray().length;
+        if (!onlyDone.isSelected()) {
+            if (searchBox.getText().isEmpty()) {
+                tableView.setItems(observableList);
+                tableView.refresh();
+            } else {
+                for (int i = 0; i < listLength; i++) {
+                    if (String.valueOf(observableList.get(i).getId_uzytkownika()).contains(searchBox.getText().toLowerCase())) {
+                        x.add(observableList.get(i));
+                    }
+                }
+                tableView.setItems(x);
+            }
+        } else {
+            if (searchBox.getText().isEmpty()) {
+                filterDoneTransactions();
+            } else {
+                for (int i = 0; i < listLength; i++) {
+                    if (String.valueOf(observableList.get(i).getId_uzytkownika()).contains(searchBox.getText().toLowerCase()) &&
+                    !observableList.get(i).isDone()) {
+                        x.add(observableList.get(i));
+                    }
+                }
+                tableView.setItems(x);
+            }
+        }
+    }
+
+
+    public void filterDoneTransactions(){
+        if(onlyDone.isSelected()) {
+            ObservableList<Tranzakcje> x = FXCollections.observableArrayList();
+            int listLength = observableList.toArray().length;
             for (int i = 0; i < listLength; i++) {
-                if (String.valueOf(observableList.get(i).getId_uzytkownika()).contains(searchBox.getText().toLowerCase())) {
+                if (!observableList.get(i).isDone()) {
                     x.add(observableList.get(i));
                 }
             }
             tableView.setItems(x);
+            tableView.refresh();
+        }else{
+            tableView.setItems(observableList);
+            tableView.refresh();
         }
     }
 
@@ -184,7 +223,7 @@ public class AdminTranzakcjeController implements Initializable {
         Session session = factory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        tranzakcje =loadAllData(Tranzakcje.class,session);
+        tranzakcje = loadAllData(Tranzakcje.class,session);
 
         transaction.commit();
         session.close();
@@ -195,7 +234,11 @@ public class AdminTranzakcjeController implements Initializable {
         for(Tranzakcje temp : tranzakcje){
             observableList.add(temp);
         }
-        tableView.setItems(observableList);
+        if(onlyDone.isSelected()){
+            filterDoneTransactions();
+        }else {
+            tableView.setItems(observableList);
+        }
     }
     @FXML
     public void goToInfo(Tranzakcje tranzakcja) throws IOException{

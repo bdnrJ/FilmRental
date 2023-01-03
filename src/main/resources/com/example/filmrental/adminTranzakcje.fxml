@@ -23,7 +23,7 @@
                   </Text>
                   <TextField fx:id="searchBox" layoutX="463.0" layoutY="27.0" onAction="#search" onKeyTyped="#search" prefHeight="40.0" prefWidth="175.0" styleClass="input" />
                   <FontAwesomeIcon fill="WHITE" glyphName="SEARCH" layoutX="422.0" layoutY="55.0" size="2em" wrappingWidth="34.0" />
-                  <CheckBox layoutX="237.0" layoutY="39.0" mnemonicParsing="false" text="Pokaż tylko niezwrócone" textFill="WHITE" />
+                  <CheckBox fx:id="onlyDone" layoutX="237.0" layoutY="39.0" mnemonicParsing="false" onAction="#filterDoneTransactions" text="Pokaż tylko niezwrócone" textFill="WHITE" />
                </children>
             </AnchorPane>
          </children>
