@@ -25,6 +25,8 @@ public class Uzytkownik {
     private int isAdmin;
 
 
+
+
     public Uzytkownik(){
 
     }

@@ -38,6 +38,8 @@ public class Tranzakcje {
     @OneToMany(mappedBy = "tranzakcja", targetEntity= MappingClasses.Item.class, cascade = CascadeType.ALL)
     private Set<Item> items;
 
+
+
     public Tranzakcje() {
     }
 
