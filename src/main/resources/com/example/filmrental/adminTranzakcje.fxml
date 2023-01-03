@@ -38,7 +38,7 @@
             <TableColumn fx:id="ilosc_filmow" minWidth="0.0" prefWidth="86.4000244140625" text="ilosc filmow" />
             <TableColumn fx:id="zwrocono" minWidth="0.0" prefWidth="65.60000610351562" resizable="false" text="zwrocono" />
             <TableColumn fx:id="proby_kontaktu" minWidth="0.0" prefWidth="96.0" resizable="false" text="proby kontaktu" />
-            <TableColumn fx:id="info" editable="false" minWidth="0.0" prefWidth="61.5999755859375" resizable="false" sortable="false" text="info" />
+            <TableColumn fx:id="info" editable="false" minWidth="0.0" prefWidth="48.0" resizable="false" sortable="false" text="info" />
         </columns>
       </TableView>
    </children>

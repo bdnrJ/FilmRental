@@ -73,46 +73,46 @@ public class UserFilmyController implements Initializable{
             return property;
         });
         kraj.setCellValueFactory(new PropertyValueFactory<Film,String>("kraj"));
-        Callback<TableColumn<Film,String>, TableCell<Film,String>> rentCellFactory = (param) ->{
-            final TableCell<Film,String> rent = new TableCell<Film,String>(){
-                @Override
-                public void updateItem(String item,boolean empty){
-                    super.updateItem(item,empty);
-                    if(empty){
-                        setGraphic(null);
-                        setText(null);
-                    }
-                    else{
-                        Color paint = new Color(0.3882, 0.3725, 0.7804, 1.0);
-                        GlyphIcon pen = GlyphsBuilder.create(FontAwesomeIcon.class)
-                                .glyph(FontAwesomeIcons.BOOKMARK)
-                                .build();
-                        pen.setFill(paint);
-                        pen.setSize("1.8em");
-                        //test
-
-                        Button editButton = new Button();
-                        editButton.getStyleClass().add("editTableBtn");
-                        editButton.setGraphic(pen);
-                        editButton.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
-                        editButton.setOnAction(event ->{
-                            Film f = getTableView().getItems().get(getIndex());
-                            System.out.println(f);
-                            try {
-                                goToRentFilm(f);
-                            } catch (Exception e) {
-                                throw new RuntimeException(e);
-                            }
-                        });
-                        setGraphic(editButton);
-                        setText(null);
-                    }
-                }
-            };
-            return rent;
-        };
-
-        rentCol.setCellFactory(rentCellFactory);
+//        Callback<TableColumn<Film,String>, TableCell<Film,String>> rentCellFactory = (param) ->{
+//            final TableCell<Film,String> rent = new TableCell<Film,String>(){
+//                @Override
+//                public void updateItem(String item,boolean empty){
+//                    super.updateItem(item,empty);
+//                    if(empty){
+//                        setGraphic(null);
+//                        setText(null);
+//                    }
+//                    else{
+//                        Color paint = new Color(0.3882, 0.3725, 0.7804, 1.0);
+//                        GlyphIcon pen = GlyphsBuilder.create(FontAwesomeIcon.class)
+//                                .glyph(FontAwesomeIcons.BOOKMARK)
+//                                .build();
+//                        pen.setFill(paint);
+//                        pen.setSize("1.8em");
+//                        //test
+//
+//                        Button editButton = new Button();
+//                        editButton.getStyleClass().add("editTableBtn");
+//                        editButton.setGraphic(pen);
+//                        editButton.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
+//                        editButton.setOnAction(event ->{
+//                            Film f = getTableView().getItems().get(getIndex());
+//                            System.out.println(f);
+//                            try {
+//                                goToRentFilm(f);
+//                            } catch (Exception e) {
+//                                throw new RuntimeException(e);
+//                            }
+//                        });
+//                        setGraphic(editButton);
+//                        setText(null);
+//                    }
+//                }
+//            };
+//            return rent;
+//        };
+//
+//        rentCol.setCellFactory(rentCellFactory);
 
         reFetchAndRedisplay();
     }

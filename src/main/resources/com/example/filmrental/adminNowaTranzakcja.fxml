@@ -90,7 +90,7 @@
          </font>
       </Text>
       <Button fx:id="selectFilmBtn" layoutX="442.0" layoutY="449.0" mnemonicParsing="false" onAction="#selectFilm" prefHeight="34.0" prefWidth="203.0" text="Wybierz" visible="false" />
-      <TableView fx:id="tableViewUzytkownik" layoutY="280.0" prefHeight="230.0" prefWidth="406.0" styleClass="tablice">
+      <TableView fx:id="tableViewUzytkownik" layoutY="279.0" prefHeight="230.0" prefWidth="406.0" styleClass="tablice">
          <columns>
             <TableColumn fx:id="idUzytkownika" minWidth="0.0" prefWidth="40.799957633018494" text="id" />
             <TableColumn fx:id="imie" minWidth="0.0" text="imie" />

@@ -28,11 +28,6 @@ public class UserPanelController implements Initializable {
     Uzytkownik x = new Uzytkownik();
 
     @FXML
-    private void home(MouseEvent event){
-
-    }
-
-    @FXML
     private void uzytkownicy(MouseEvent event) throws IOException {
         Parent fxml = FXMLLoader.load(getClass().getResource("adminUzytkownicy.fxml"));
         bp.setCenter(fxml);
@@ -42,6 +37,15 @@ public class UserPanelController implements Initializable {
     private void filmy() throws IOException {
         Parent fxml = FXMLLoader.load(getClass().getResource("userFilmy.fxml"));
         bp.setCenter(fxml);
+    }
+
+    @FXML
+    private void home(){
+        bp.setCenter(ap);
+    }
+
+    public void exit(){
+        Platform.exit();
     }
 
 

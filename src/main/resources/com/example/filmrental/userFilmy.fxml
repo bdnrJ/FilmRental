@@ -31,9 +31,8 @@
           <TableColumn fx:id="tytul" prefWidth="215.0" text="Tytuł" />
             <TableColumn fx:id="time" prefWidth="79.0" text="Czas trwania" />
             <TableColumn fx:id="lang" prefWidth="77.0" text="Język" />
-            <TableColumn fx:id="date" prefWidth="103.0" text="Data premiery" />
-            <TableColumn fx:id="kraj" minWidth="0.0" prefWidth="84.0" text="Kraj" />
-            <TableColumn fx:id="rentCol" minWidth="0.0" prefWidth="123.0" text="Wypożycz" />
+            <TableColumn fx:id="date" prefWidth="108.0" text="Data premiery" />
+            <TableColumn fx:id="kraj" minWidth="0.0" prefWidth="111.0" text="Kraj" />
         </columns>
       </TableView>
    </children>
