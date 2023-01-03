@@ -156,7 +156,7 @@ public class AdminUzytkownicyController implements Initializable {
                         Color paint = new Color(0.9176, 0.3333, 0.3333, 1.0);
 
                         GlyphIcon trash = GlyphsBuilder.create(FontAwesomeIcon.class)
-                                .glyph(FontAwesomeIcons.CHECK)
+                                .glyph(FontAwesomeIcons.INFO)
                                 .build();
                         trash.setFill(paint);
                         trash.setSize("1.8em");

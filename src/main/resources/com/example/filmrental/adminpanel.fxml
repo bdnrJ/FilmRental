@@ -15,7 +15,7 @@
          <left>
             <VBox prefHeight="444.0" prefWidth="203.0" style="-fx-background-color: #2B2C37;" BorderPane.alignment="CENTER">
                <children>
-                  <Pane fx:id="home" onMouseClicked="#home" prefHeight="147.0" prefWidth="203.0" style="-fx-background-color: #635FC7;">
+                  <Pane fx:id="home" onMouseClicked="#home" prefHeight="190.0" prefWidth="203.0" style="-fx-background-color: #635FC7;">
                      <children>
                         <FontAwesomeIcon fill="WHITE" glyphName="GEARS" layoutX="14.0" layoutY="72.0" size="6em" wrappingWidth="64.1428575515747" />
                         <Text fill="WHITE" layoutX="95.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADMIN" wrappingWidth="100.13671875">
@@ -25,7 +25,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane prefHeight="84.0" prefWidth="203.0" />
+                  <Pane prefHeight="135.0" prefWidth="203.0" />
                   <Button mnemonicParsing="false" onMouseClicked="#filmy" prefHeight="40.0" prefWidth="203.0" style="-fx-text-fill: #ffffff;" styleClass="navBtn" text="Filmy">
                      <font>
                         <Font size="21.0" />
@@ -52,10 +52,18 @@
                   </Button>
                   <Button mnemonicParsing="false" onAction="#nowaTranzakcja" prefHeight="33.0" prefWidth="203.0" style="-fx-text-fill: #ffffff;" styleClass="navBtn" text="Nowa Tranzakcja">
                      <font>
-                        <Font size="19.0" />
+                        <Font size="20.0" />
                      </font>
                      <graphic>
                         <FontAwesomeIcon fill="WHITE" glyphName="SHOPPING_CART" />
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#dluznicy" prefHeight="33.0" prefWidth="203.0" style="-fx-text-fill: #ffffff;" styleClass="navBtn" text="Dłużnicy">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIcon fill="WHITE" glyphName="WARNING" />
                      </graphic>
                   </Button>
                   <Pane prefHeight="185.0" prefWidth="211.0" />
@@ -74,7 +82,7 @@
                      <children>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <Text fill="WHITE" layoutX="14.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wyporzyczalnia Filmow">
+                              <Text fill="WHITE" layoutX="172.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wyporzyczalnia Filmow">
                                  <font>
                                     <Font size="33.0" />
                                  </font>
@@ -82,72 +90,14 @@
                            </children>
                         </AnchorPane>
                      </children></VBox>
-                  <Text fill="WHITE" layoutX="40.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Obecnie w bazie danych znajduje sie :">
-                     <font>
-                        <Font size="21.0" />
-                     </font>
-                  </Text>
-                  <Text fill="WHITE" layoutX="55.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100 ">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Text>
-                  <Text fill="WHITE" layoutX="105.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Uzytkownikow">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Text>
-                  <Text fill="WHITE" layoutX="55.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100 ">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Text>
-                  <Text fill="WHITE" layoutX="106.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filmów">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Text>
-                  <Text fill="WHITE" layoutX="55.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100 ">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Text>
-                  <Text fill="WHITE" layoutX="105.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tranzakcji:">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Text>
-                  <Text fill="WHITE" layoutX="559.0" layoutY="490.0" strokeType="OUTSIDE" strokeWidth="0.0" text="By Jakub Bednarczyk" />
-                  <Text fill="WHITE" layoutX="105.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="50">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Text>
-                  <Text fill="WHITE" layoutX="141.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="w trakcie">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Text>
-                  <Text fill="WHITE" layoutX="105.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="50">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Text>
-                  <Text fill="WHITE" layoutX="141.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ukończonych">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Text>
-                  <Text fill="WHITE" layoutX="55.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100 ">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Text>
-                  <Text fill="WHITE" layoutX="105.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dłużników">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Text>
+                  <Button layoutX="14.0" layoutY="113.0" mnemonicParsing="false" prefHeight="180.0" prefWidth="318.0" text="Button" />
+                  <Button layoutX="347.0" layoutY="114.0" mnemonicParsing="false" prefHeight="180.0" prefWidth="321.0" text="Button" />
+                  <Button layoutX="15.0" layoutY="308.0" mnemonicParsing="false" prefHeight="180.0" prefWidth="317.0" text="Button" />
+                  <Button layoutX="348.0" layoutY="308.0" mnemonicParsing="false" prefHeight="180.0" prefWidth="320.0" text="Button" />
+                  <Text layoutX="144.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filmy" wrappingWidth="53.13671875" />
+                  <Text layoutX="481.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tranzakcje" wrappingWidth="60.13671875" />
+                  <Text layoutX="140.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Użytkownicy" wrappingWidth="68.13671875" />
+                  <Text layoutX="474.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dłużnicy" wrappingWidth="68.13671875" />
                </children>
             </AnchorPane>
          </center>

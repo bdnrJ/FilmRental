@@ -60,6 +60,9 @@ public class AdminUzytkownikPromptInfoController implements Initializable {
     private Text userNrtel;
 
     @FXML
+    private Text tranzakcjeCounter;
+
+    @FXML
     private TableView<Tranzakcje> tableView;
 
     @FXML
@@ -138,7 +141,7 @@ public class AdminUzytkownikPromptInfoController implements Initializable {
                     else{
                         Color paint = new Color(0.3882, 0.3725, 0.7804, 1.0);
                         GlyphIcon pen = GlyphsBuilder.create(FontAwesomeIcon.class)
-                                .glyph(FontAwesomeIcons.UMBRELLA)
+                                .glyph(FontAwesomeIcons.INFO_CIRCLE)
                                 .build();
                         pen.setFill(paint);
                         pen.setSize("1.8em");
@@ -232,6 +235,8 @@ public class AdminUzytkownikPromptInfoController implements Initializable {
         query.setParameter("idUzytkownik",x.getId());
 
         List list = query.list();
+        tranzakcjeCounter.setText("("+list.size()+")");
+
 
         tranzakcje = list;
 
@@ -239,5 +244,10 @@ public class AdminUzytkownikPromptInfoController implements Initializable {
 
         transaction.commit();
         session.close();
+    }
+
+    public void exit(){
+        Stage stage1 = (Stage) userId.getScene().getWindow();
+        stage1.close();
     }
 }

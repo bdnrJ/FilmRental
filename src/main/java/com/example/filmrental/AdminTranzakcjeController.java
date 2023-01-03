@@ -34,6 +34,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -84,7 +85,9 @@ public class AdminTranzakcjeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date today = new Date();
 
+        String todayDateString = dateFormat.format(today);
 
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         id_user.setCellValueFactory(new PropertyValueFactory<>("id_uzytkownika"));
@@ -123,7 +126,7 @@ public class AdminTranzakcjeController implements Initializable {
                     else{
                         Color paint = new Color(0.3882, 0.3725, 0.7804, 1.0);
                         GlyphIcon pen = GlyphsBuilder.create(FontAwesomeIcon.class)
-                                .glyph(FontAwesomeIcons.UMBRELLA)
+                                .glyph(FontAwesomeIcons.INFO_CIRCLE)
                                 .build();
                         pen.setFill(paint);
                         pen.setSize("1.8em");

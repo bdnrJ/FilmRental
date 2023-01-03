@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="524.0" prefWidth="612.0" style="-fx-background-color: #2b2c37;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.filmrental.AdminUzytkownikPromptInfoController">
    <children>
-      <Button layoutX="459.0" layoutY="472.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="139.0" styleClass="cancelBtn" text="Wyjdź" />
+      <Button layoutX="459.0" layoutY="472.0" mnemonicParsing="false" onAction="#exit" prefHeight="34.0" prefWidth="139.0" styleClass="cancelBtn" text="Wyjdź" />
       <Text fill="WHITE" layoutX="230.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Użytkownik">
          <font>
             <Font size="30.0" />
@@ -55,11 +55,10 @@
             <Font size="15.0" />
          </font>
       </Text>
-      <Button layoutX="306.0" layoutY="472.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="139.0" styleClass="styledbuttonround" text="x" />
       <TableView fx:id="tableView" layoutY="245.0" prefHeight="217.0" prefWidth="613.0">
         <columns>
           <TableColumn fx:id="id" prefWidth="47.0" text="Id" />
-            <TableColumn fx:id="data_tranzakcji" prefWidth="103.0" text="data_tranzackji" />
+            <TableColumn fx:id="data_tranzakcji" prefWidth="103.0" text="data_tranzakcji" />
             <TableColumn fx:id="data_zwrotu" prefWidth="76.0" text="data_zwrotu" />
             <TableColumn fx:id="koszt" prefWidth="74.0" text="koszt" />
             <TableColumn fx:id="ilosc_filmow" prefWidth="75.0" text="ilosc filmow" />
@@ -73,7 +72,7 @@
             <Font size="30.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="334.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(3)">
+      <Text fx:id="tranzakcjeCounter" fill="WHITE" layoutX="334.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(3)">
          <font>
             <Font size="30.0" />
          </font>

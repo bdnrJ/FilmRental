@@ -46,13 +46,18 @@ public class AdminPanelController implements Initializable {
         bp.setCenter(fxml);
     }
 
-
-
     @FXML
     private void home(){
-        System.out.println("dashdask");
         bp.setCenter(homeAnchorPane);
     }
+    @FXML
+    private void dluznicy() throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("adminDluznicy.fxml"));
+        bp.setCenter(fxml);
+    }
+
+
+
 
 
     @Override
