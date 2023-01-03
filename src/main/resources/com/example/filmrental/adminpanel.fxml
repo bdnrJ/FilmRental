@@ -31,7 +31,7 @@
                         <Font size="21.0" />
                      </font>
                      <graphic>
-                        <FontAwesomeIcon fill="WHITE" glyphName="FILM" />
+                        <FontAwesomeIcon fill="#ebc322" glyphName="FILM" />
                      </graphic>
                   </Button>
                   <Button mnemonicParsing="false" onMouseClicked="#uzytkownicy" prefHeight="27.0" prefWidth="203.0" style="-fx-text-fill: #ffffff;" styleClass="navBtn" text="Uzytkownicy">
@@ -39,7 +39,7 @@
                         <Font size="21.0" />
                      </font>
                      <graphic>
-                        <FontAwesomeIcon fill="WHITE" glyphName="GROUP" />
+                        <FontAwesomeIcon fill="#75c962" glyphName="GROUP" />
                      </graphic>
                   </Button>
                   <Button mnemonicParsing="false" onAction="#tranzakcje" prefHeight="33.0" prefWidth="203.0" style="-fx-text-fill: #ffffff;" styleClass="navBtn" text="Tranzakcje">
@@ -47,7 +47,7 @@
                         <Font size="21.0" />
                      </font>
                      <graphic>
-                        <FontAwesomeIcon fill="WHITE" glyphName="BRIEFCASE" />
+                        <FontAwesomeIcon fill="#4f3d90" glyphName="BRIEFCASE" />
                      </graphic>
                   </Button>
                   <Button mnemonicParsing="false" onAction="#nowaTranzakcja" prefHeight="33.0" prefWidth="203.0" style="-fx-text-fill: #ffffff;" styleClass="navBtn" text="Nowa Tranzakcja">
@@ -55,7 +55,7 @@
                         <Font size="20.0" />
                      </font>
                      <graphic>
-                        <FontAwesomeIcon fill="WHITE" glyphName="SHOPPING_CART" />
+                        <FontAwesomeIcon fill="#6c5ddd" glyphName="SHOPPING_CART" />
                      </graphic>
                   </Button>
                   <Button mnemonicParsing="false" onAction="#dluznicy" prefHeight="33.0" prefWidth="203.0" style="-fx-text-fill: #ffffff;" styleClass="navBtn" text="Dłużnicy">
@@ -63,11 +63,11 @@
                         <Font size="20.0" />
                      </font>
                      <graphic>
-                        <FontAwesomeIcon fill="WHITE" glyphName="WARNING" />
+                        <FontAwesomeIcon fill="#b22323" glyphName="WARNING" />
                      </graphic>
                   </Button>
                   <Pane prefHeight="185.0" prefWidth="211.0" />
-                  <Button mnemonicParsing="false" prefHeight="114.0" prefWidth="203.0" style="-fx-background-color: #2B2C37; -fx-text-fill: #ffffff;;" text="Exit">
+                  <Button id="exitBtn" mnemonicParsing="false" onAction="#exit" prefHeight="114.0" prefWidth="203.0" style="-fx-background-color: #2B2C37;" stylesheets="@app.css" text="Exit">
                      <font>
                         <Font size="27.0" />
                      </font>
@@ -82,7 +82,7 @@
                      <children>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <Text fill="WHITE" layoutX="172.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wyporzyczalnia Filmow">
+                              <Text fill="WHITE" layoutX="172.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wypożyczalnia Filmów">
                                  <font>
                                     <Font size="33.0" />
                                  </font>
@@ -90,14 +90,54 @@
                            </children>
                         </AnchorPane>
                      </children></VBox>
-                  <Button layoutX="14.0" layoutY="113.0" mnemonicParsing="false" prefHeight="180.0" prefWidth="318.0" text="Button" />
-                  <Button layoutX="347.0" layoutY="114.0" mnemonicParsing="false" prefHeight="180.0" prefWidth="321.0" text="Button" />
-                  <Button layoutX="15.0" layoutY="308.0" mnemonicParsing="false" prefHeight="180.0" prefWidth="317.0" text="Button" />
-                  <Button layoutX="348.0" layoutY="308.0" mnemonicParsing="false" prefHeight="180.0" prefWidth="320.0" text="Button" />
-                  <Text layoutX="144.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filmy" wrappingWidth="53.13671875" />
-                  <Text layoutX="481.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tranzakcje" wrappingWidth="60.13671875" />
-                  <Text layoutX="140.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Użytkownicy" wrappingWidth="68.13671875" />
-                  <Text layoutX="474.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dłużnicy" wrappingWidth="68.13671875" />
+                  <Button layoutX="14.0" layoutY="113.0" mnemonicParsing="false" onAction="#filmy" prefHeight="180.0" prefWidth="318.0" styleClass="fancyBtn" textFill="#4a4f5e" />
+                  <Button layoutX="347.0" layoutY="114.0" mnemonicParsing="false" onAction="#tranzakcje" prefHeight="180.0" prefWidth="321.0" styleClass="fancyBtn" />
+                  <Button layoutX="15.0" layoutY="308.0" mnemonicParsing="false" onAction="#uzytkownicy" prefHeight="180.0" prefWidth="317.0" styleClass="fancyBtn" />
+                  <Button layoutX="347.0" layoutY="308.0" mnemonicParsing="false" onAction="#dluznicy" prefHeight="180.0" prefWidth="320.0" styleClass="fancyBtn" />
+                  <Text fx:id="filmyCounter" fill="WHITE" layoutX="113.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="50 Filmów" textAlignment="CENTER" wrappingWidth="120.13671875">
+                     <font>
+                        <Font size="23.0" />
+                     </font></Text>
+                  <FontAwesomeIcon fill="#ebc322" glyphName="FILM" layoutX="148.0" layoutY="181.0" size="4em" wrappingWidth="51.85714244842529">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </FontAwesomeIcon>
+                  <FontAwesomeIcon fill="#614bb2" glyphName="BRIEFCASE" layoutX="482.0" layoutY="179.0" size="4em" wrappingWidth="51.85714244842529">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </FontAwesomeIcon>
+                  <FontAwesomeIcon fill="#75c962" glyphName="GROUP" layoutX="147.0" layoutY="368.0" size="4em" wrappingWidth="51.85714244842529">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </FontAwesomeIcon>
+                  <FontAwesomeIcon fill="#b22323" glyphName="WARNING" layoutX="481.0" layoutY="370.0" size="4em" wrappingWidth="51.85714244842529">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </FontAwesomeIcon>
+                  <Text fx:id="tranzakcjeCounter" fill="WHITE" layoutX="433.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="50 Tranzakcji" textAlignment="CENTER" wrappingWidth="149.13671875">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="uzytkownicyCounter" fill="WHITE" layoutX="81.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" text="50 Użytkowników" textAlignment="CENTER" wrappingWidth="185.13671875">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="dluznicyCounter" fill="WHITE" layoutX="436.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" text="50 Dłużników" textAlignment="CENTER" wrappingWidth="142.13671875">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="tranzakcjeWToku" fill="#bfbfbf" layoutX="468.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(20 w toku)">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
                </children>
             </AnchorPane>
          </center>

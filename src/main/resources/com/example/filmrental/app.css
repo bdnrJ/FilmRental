@@ -87,3 +87,20 @@
     -fx-text-fill: #999fc7;
     -fx-cursor: hand;
 }
+
+#exitBtn{
+    -fx-text-fill: #ffffff;
+}
+
+#exitBtn:hover{
+    -fx-text-fill: #bc1515;
+}
+
+.fancyBtn{
+   -fx-background-color: #3c404d;
+}
+
+.fancyBtn:hover{
+    -fx-background-color: #4a4f5e;
+    -fx-border-color:  #635FC7;
+}
