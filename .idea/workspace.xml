@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1beb1e20-e477-484d-87d2-2b9ae7c66ae4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_12_2022_13_15__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_12_2022_13_15__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/filmrental/AdminUzytkownikPromptInfoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/adminUzytkownikPromptInfo.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filmrental/AdminFilmTranzakcjeInfoPrompt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filmrental/AdminFilmTranzakcjeInfoPrompt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filmrental/AdminTranzakcjeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filmrental/AdminTranzakcjeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/adminTranzakcje.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/adminTranzakcje.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MappingClasses/Uzytkownik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MappingClasses/Uzytkownik.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filmrental/AdminUzytkownicyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filmrental/AdminUzytkownicyController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

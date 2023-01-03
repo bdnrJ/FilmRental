@@ -169,8 +169,7 @@ public class AdminUzytkownicyController implements Initializable {
                         deleteButton.setOnAction(event ->{
                             Uzytkownik f = getTableView().getItems().get(getIndex());
                             try {
-                                System.out.println("more info");
-                                System.out.println(f);
+                                goToMoreInfo(f);
                             } catch (Exception e) {
                                 throw new RuntimeException(e);
                             }
@@ -249,6 +248,26 @@ public class AdminUzytkownicyController implements Initializable {
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(tableView.getScene().getWindow());
         stage.setTitle("Usuwanie Uzytkownika");
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.setUserData(user);
+        stage.show();
+        stage.setOnHidden(new EventHandler<WindowEvent>(){
+            public void handle(WindowEvent we) {
+                reFetchAndRedisplay();
+            }
+        });
+    }
+
+    @FXML
+    public void goToMoreInfo(Uzytkownik user) throws IOException{
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("adminUzytkownikPromptInfo.fxml"));
+        Parent root = fxmlloader.load();
+        root.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
+        Stage stage = new Stage();
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(tableView.getScene().getWindow());
+        stage.setTitle(user.getNazwisko() +" - dodatkowe informacje");
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.setUserData(user);

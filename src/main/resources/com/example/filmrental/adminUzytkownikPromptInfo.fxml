@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="524.0" prefWidth="612.0" style="-fx-background-color: #2b2c37;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.filmrental.AdminUzytkownikPromptInfoController">
+   <children>
+      <Button layoutX="459.0" layoutY="472.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="139.0" styleClass="cancelBtn" text="Wyjdź" />
+      <Text fill="WHITE" layoutX="230.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Użytkownik">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="266.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="250.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="imie:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="218.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nazwisko:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="247.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nr tel:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="userId" fill="WHITE" layoutX="312.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="text">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="userImie" fill="WHITE" layoutX="312.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="text">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="userNazwisko" fill="WHITE" layoutX="312.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="text">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="userNrtel" fill="WHITE" layoutX="312.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="text">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Button layoutX="306.0" layoutY="472.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="139.0" styleClass="styledbuttonround" text="x" />
+      <TableView fx:id="tableView" layoutY="245.0" prefHeight="217.0" prefWidth="613.0">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="47.0" text="Id" />
+            <TableColumn fx:id="data_tranzakcji" prefWidth="103.0" text="data_tranzackji" />
+            <TableColumn fx:id="data_zwrotu" prefWidth="76.0" text="data_zwrotu" />
+            <TableColumn fx:id="koszt" prefWidth="74.0" text="koszt" />
+            <TableColumn fx:id="ilosc_filmow" prefWidth="75.0" text="ilosc filmow" />
+            <TableColumn fx:id="zwrocono" prefWidth="65.0" text="zwrocono" />
+            <TableColumn fx:id="proby_kontaktu" prefWidth="95.0" text="proby kontaktu" />
+            <TableColumn fx:id="info" prefWidth="77.0" text="info" />
+        </columns>
+      </TableView>
+      <Text fill="WHITE" layoutX="14.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tranzakjce użytkownika">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="334.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(3)">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

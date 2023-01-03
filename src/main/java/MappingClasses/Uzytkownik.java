@@ -2,8 +2,6 @@ package MappingClasses;
 
 import jakarta.persistence.*;
 
-import java.util.Set;
-
 @Entity
 @Table(name = "user")
 public class Uzytkownik {
