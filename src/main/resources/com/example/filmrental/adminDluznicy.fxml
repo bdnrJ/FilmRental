@@ -20,7 +20,7 @@
                         <Font size="30.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="searchBox" layoutX="467.0" layoutY="26.0" onAction="#search" prefHeight="40.0" prefWidth="175.0" styleClass="input" />
+                  <TextField fx:id="searchBox" layoutX="467.0" layoutY="26.0" onKeyTyped="#search" prefHeight="40.0" prefWidth="175.0" styleClass="input" />
                   <FontAwesomeIcon fill="WHITE" glyphName="SEARCH" layoutX="427.0" layoutY="55.0" size="2em" text="" wrappingWidth="34.0" />
                </children>
             </AnchorPane>
