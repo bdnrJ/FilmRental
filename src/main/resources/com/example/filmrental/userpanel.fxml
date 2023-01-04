@@ -38,7 +38,7 @@
                         <FontAwesomeIcon fill="#ebc322" glyphName="FILM" />
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" onMouseClicked="#uzytkownicy" prefHeight="27.0" prefWidth="203.0" style="-fx-text-fill: #ffffff;" styleClass="navBtn" text="Moje tranzakcje">
+                  <Button mnemonicParsing="false" onAction="#tranzakcje" prefHeight="27.0" prefWidth="203.0" style="-fx-text-fill: #ffffff;" styleClass="navBtn" text="Moje tranzakcje">
                      <font>
                         <Font size="21.0" />
                      </font>

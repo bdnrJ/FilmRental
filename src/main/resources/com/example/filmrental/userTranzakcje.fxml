@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="507.0" prefWidth="683.0" style="-fx-background-color: #20212C;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.filmrental.UserTranzakcjeController">
+   <children>
+      <VBox prefHeight="96.0" prefWidth="683.0" style="-fx-background-color: #2B2C37;">
+         <children>
+            <AnchorPane prefHeight="100.0" prefWidth="650.0" style="-fx-background-color: #2B2C37;">
+               <children>
+                  <Text fill="WHITE" layoutX="24.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Moje Tranzakcje">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="searchBox" layoutX="463.0" layoutY="27.0" onAction="#search" onKeyTyped="#search" prefHeight="40.0" prefWidth="175.0" styleClass="input" />
+                  <FontAwesomeIcon fill="WHITE" glyphName="SEARCH" layoutX="422.0" layoutY="55.0" size="2em" wrappingWidth="34.0" />
+                  <CheckBox fx:id="onlyDone" layoutX="255.0" layoutY="40.0" mnemonicParsing="false" onAction="#filterDoneTransactions" text="Pokaż tylko niezwrócone" textFill="WHITE" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <TableView fx:id="tableView" layoutY="96.0" prefHeight="411.0" prefWidth="683.0" styleClass="tablice">
+        <columns>
+            <TableColumn fx:id="id" prefWidth="31.999937415122986" text="Id" />
+            <TableColumn fx:id="data_tranzakcji" prefWidth="140.00000762939453" text="data_tranzakcji" />
+            <TableColumn fx:id="data_zwrotu" prefWidth="121.5999755859375" text="data_zwrotu" />
+            <TableColumn fx:id="koszt" prefWidth="60.0" text="koszt" />
+            <TableColumn fx:id="ilosc_filmow" minWidth="0.0" prefWidth="88.0" text="ilosc filmow" />
+            <TableColumn fx:id="zwrocono" minWidth="0.0" prefWidth="74.39999389648438" resizable="false" text="zwrocono" />
+            <TableColumn fx:id="proby_kontaktu" minWidth="0.0" prefWidth="95.19998168945312" resizable="false" text="proby kontaktu" />
+            <TableColumn fx:id="info" editable="false" minWidth="0.0" prefWidth="51.2000732421875" resizable="false" sortable="false" text="info" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

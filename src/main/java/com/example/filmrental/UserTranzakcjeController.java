@@ -1,13 +1,14 @@
 package com.example.filmrental;
 
-import MappingClasses.Film;
 import MappingClasses.Tranzakcje;
+import MappingClasses.Uzytkownik;
 import de.jensd.fx.glyphs.GlyphIcon;
 import de.jensd.fx.glyphs.GlyphsBuilder;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcons;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -29,6 +30,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import java.io.IOException;
 import java.net.URL;
@@ -38,9 +40,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class AdminTranzakcjeController implements Initializable {
-
-
+public class UserTranzakcjeController implements Initializable {
     @FXML
     private TableView<Tranzakcje> tableView;
 
@@ -52,9 +52,6 @@ public class AdminTranzakcjeController implements Initializable {
 
     @FXML
     private TableColumn<Tranzakcje, Integer> id;
-
-    @FXML
-    private TableColumn<Tranzakcje, Integer> id_user;
 
     @FXML
     private TableColumn<Tranzakcje, Integer> ilosc_filmow;
@@ -78,6 +75,8 @@ public class AdminTranzakcjeController implements Initializable {
     @FXML
     private CheckBox onlyDone;
 
+    Uzytkownik x;
+
 
     private List<Tranzakcje> tranzakcje;
     ObservableList<Tranzakcje> observableList = FXCollections.observableArrayList();
@@ -87,7 +86,6 @@ public class AdminTranzakcjeController implements Initializable {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        id_user.setCellValueFactory(new PropertyValueFactory<>("id_uzytkownika"));
         data_tranzakcji.setCellValueFactory(Job -> {
             SimpleStringProperty property = new SimpleStringProperty();
             property.setValue(dateFormat.format(Job.getValue().getData_tranzakcji()));
@@ -151,7 +149,11 @@ public class AdminTranzakcjeController implements Initializable {
         info.setCellFactory(cellFactory);
 
 
-        reFetchAndRedisplay();
+        Platform.runLater(new Runnable() {
+            public void run() {
+                reFetchAndRedisplay();
+            }
+        });
     }
 
     public void search() {
@@ -176,7 +178,7 @@ public class AdminTranzakcjeController implements Initializable {
             } else {
                 for (int i = 0; i < listLength; i++) {
                     if (String.valueOf(observableList.get(i).getId_uzytkownika()).contains(searchBox.getText().toLowerCase()) &&
-                    !observableList.get(i).isDone()) {
+                            !observableList.get(i).isDone()) {
                         x.add(observableList.get(i));
                     }
                 }
@@ -223,7 +225,14 @@ public class AdminTranzakcjeController implements Initializable {
         Session session = factory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        tranzakcje = loadAllData(Tranzakcje.class,session);
+
+        Stage stage = (Stage) searchBox.getScene().getWindow();
+        x = (Uzytkownik) stage.getUserData();
+
+
+        Query query = session.createQuery("from Tranzakcje where id_uzytkownika =:idUser");
+        query.setParameter("idUser",x.getId());
+        tranzakcje = query.list();
 
         transaction.commit();
         session.close();
@@ -240,9 +249,10 @@ public class AdminTranzakcjeController implements Initializable {
             tableView.setItems(observableList);
         }
     }
+
     @FXML
-    public void goToInfo(Tranzakcje tranzakcja) throws IOException{
-        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("adminTranzakcjePromptInfo.fxml"));
+    public void goToInfo(Tranzakcje tranzakcja) throws IOException {
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("userTranzakcjePromptInfo.fxml"));
         Parent root = fxmlloader.load();
         root.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
         Stage stage = new Stage();
@@ -258,5 +268,9 @@ public class AdminTranzakcjeController implements Initializable {
                 reFetchAndRedisplay();
             }
         });
+
+        UserFilmTranzakcjeInfoPrompt controller = fxmlloader.getController();
+        controller.getUser(x);
+
     }
 }

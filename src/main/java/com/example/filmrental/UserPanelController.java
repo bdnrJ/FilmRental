@@ -28,8 +28,8 @@ public class UserPanelController implements Initializable {
     Uzytkownik x = new Uzytkownik();
 
     @FXML
-    private void uzytkownicy(MouseEvent event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("adminUzytkownicy.fxml"));
+    private void tranzakcje() throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("userTranzakcje.fxml"));
         bp.setCenter(fxml);
     }
 
