@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -15,25 +12,65 @@
          <children>
             <AnchorPane prefHeight="100.0" prefWidth="650.0" style="-fx-background-color: #2B2C37;">
                <children>
-                  <Text fill="WHITE" layoutX="24.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filmy">
+                  <Text fill="WHITE" layoutX="24.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Moje konto">
                      <font>
                         <Font size="30.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="searchBox" layoutX="464.0" layoutY="28.0" onKeyTyped="#search" prefHeight="40.0" prefWidth="175.0" styleClass="input" />
-                  <FontAwesomeIcon fill="WHITE" glyphName="SEARCH" layoutX="421.0" layoutY="56.0" size="2em" wrappingWidth="34.0" />
                </children>
             </AnchorPane>
          </children>
       </VBox>
-      <TableView fx:id="tableView" layoutY="96.0" prefHeight="411.0" prefWidth="683.0" styleClass="tablice">
-        <columns>
-          <TableColumn fx:id="tytul" prefWidth="215.0" text="Tytuł" />
-            <TableColumn fx:id="time" prefWidth="79.0" text="Czas trwania" />
-            <TableColumn fx:id="lang" prefWidth="77.0" text="Język" />
-            <TableColumn fx:id="date" prefWidth="108.0" text="Data premiery" />
-            <TableColumn fx:id="kraj" minWidth="0.0" prefWidth="111.0" text="Kraj" />
-        </columns>
-      </TableView>
+      <Text fill="WHITE" layoutX="21.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Imie:">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="20.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nazwisko:">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="20.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nr_tel:">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fx:id="userImie" fill="WHITE" layoutX="94.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="imie">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fx:id="userNazwisko" fill="WHITE" layoutX="152.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nazwiskpo">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fx:id="userNrtel" fill="WHITE" layoutX="118.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nrtel">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="20.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ilość wykonanych tranzakcji:">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="20.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Suma wydatków:">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fx:id="userTranzakcjeCount" fill="WHITE" layoutX="358.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="tran">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fx:id="userKoszt" fill="WHITE" layoutX="231.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="koszt">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Button layoutX="21.0" layoutY="435.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="210.0" text="Edytuj dane" />
    </children>
 </AnchorPane>
