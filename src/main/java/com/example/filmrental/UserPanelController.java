@@ -41,6 +41,12 @@ public class UserPanelController implements Initializable {
     }
 
     @FXML
+    private void mojekonto() throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("userFilmy.fxml"));
+        bp.setCenter(fxml);
+    }
+
+    @FXML
     private void home(){
         bp.setCenter(ap);
     }

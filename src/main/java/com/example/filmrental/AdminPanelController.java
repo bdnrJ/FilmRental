@@ -1,8 +1,10 @@
 package com.example.filmrental;
 
+import MappingClasses.Film;
 import MappingClasses.Tranzakcje;
 import MappingClasses.Uzytkownik;
 import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,7 +14,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -81,6 +85,20 @@ public class AdminPanelController implements Initializable {
     }
 
     @FXML
+    public void rejestracja() throws IOException{
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("rejestracja.fxml"));
+        Parent root = fxmlloader.load();
+        root.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
+        Stage stage = new Stage();
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(bp.getScene().getWindow());
+        stage.setTitle("Tworzenie uzytkownika");
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.show();
+    }
+
+    @FXML
     public void login() throws IOException {
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("login.fxml"));
         Parent root = (Parent) fxmlloader.load();
@@ -91,7 +109,7 @@ public class AdminPanelController implements Initializable {
         stage.setResizable(false);
         stage.show();
 
-        Stage stage1 = (Stage) dluznicyCounter.getScene().getWindow();
+        Stage stage1 = (Stage) bp.getScene().getWindow();
         stage1.close();
     }
 

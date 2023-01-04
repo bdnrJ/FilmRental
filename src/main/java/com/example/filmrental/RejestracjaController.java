@@ -67,19 +67,15 @@ public class RejestracjaController {
 
         //Sprawdzanie czy inputy sa git
         if(!isTelNumberOk(newUser.getNr_tel())) {
-            System.out.println("chujowy numer");
             nr_telAlert.setVisible(true);
         }
         if(!isNazwiskoOk(newUser.getNazwisko())){
-            System.out.println("zle imie");
             nazwiskoAlert.setVisible(true);
         }
         if(!isImieOk(newUser.getImie())){
-            System.out.println("zle nazwisko");
             imieAlert.setVisible(true);
         }
         if(!isHasloOk(newUser.getHaslo())){
-            System.out.println("zle haslo");
             hasloAlert.setVisible(true);
         }
 
