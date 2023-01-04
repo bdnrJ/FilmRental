@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1beb1e20-e477-484d-87d2-2b9ae7c66ae4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/filmrental/UserFilmTranzakcjeInfoPrompt.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/filmrental/UserTranzakcjeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/userTranzakcje.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/userTranzakcjePromptInfo.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filmrental/AdminTranzakcjeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filmrental/AdminTranzakcjeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filmrental/AdminPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filmrental/AdminPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filmrental/UserFilmTranzakcjeInfoPrompt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filmrental/UserFilmTranzakcjeInfoPrompt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filmrental/UserPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filmrental/UserPanelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/userpanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/userpanel.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/adminpanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/adminpanel.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

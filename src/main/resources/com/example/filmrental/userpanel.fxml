@@ -15,7 +15,7 @@
          <left>
             <VBox prefHeight="444.0" prefWidth="203.0" style="-fx-background-color: #2B2C37;" BorderPane.alignment="CENTER">
                <children>
-                  <Pane onMouseClicked="#home" prefHeight="132.0" prefWidth="203.0" style="-fx-background-color: #635FC7;">
+                  <Pane onMouseClicked="#home" prefHeight="144.0" prefWidth="203.0" style="-fx-background-color: #635FC7;">
                      <children>
                         <Text fill="WHITE" layoutX="74.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Witaj," wrappingWidth="53.13671875">
                            <font>
@@ -55,6 +55,11 @@
                      </graphic>
                   </Button>
                   <Pane prefHeight="185.0" prefWidth="203.0" />
+                  <Button id="exitBtn" mnemonicParsing="false" onAction="#login" prefHeight="38.0" prefWidth="203.0" style="-fx-background-color: #2B2C37;" stylesheets="@app.css" text="wyloguj">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
                   <Button id="exitBtn" mnemonicParsing="false" onAction="#exit" prefHeight="114.0" prefWidth="203.0" style="-fx-background-color: #2B2C37;" stylesheets="@app.css" text="Exit">
                      <font>
                         <Font size="27.0" />

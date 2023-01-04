@@ -54,9 +54,6 @@ public class UserFilmTranzakcjeInfoPrompt implements Initializable {
                 getData();
             }
         });
-
-
-
     }
 
     public void getData(){

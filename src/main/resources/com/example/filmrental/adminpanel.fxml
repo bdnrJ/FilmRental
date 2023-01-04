@@ -15,7 +15,7 @@
          <left>
             <VBox prefHeight="444.0" prefWidth="203.0" style="-fx-background-color: #2B2C37;" BorderPane.alignment="CENTER">
                <children>
-                  <Pane fx:id="home" onMouseClicked="#home" prefHeight="190.0" prefWidth="203.0" style="-fx-background-color: #635FC7;">
+                  <Pane fx:id="home" onMouseClicked="#home" prefHeight="220.0" prefWidth="203.0" style="-fx-background-color: #635FC7;">
                      <children>
                         <FontAwesomeIcon fill="WHITE" glyphName="GEARS" layoutX="14.0" layoutY="72.0" size="6em" wrappingWidth="64.1428575515747" />
                         <Text fill="WHITE" layoutX="95.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADMIN" wrappingWidth="100.13671875">
@@ -25,7 +25,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane prefHeight="135.0" prefWidth="203.0" />
+                  <Pane prefHeight="166.0" prefWidth="203.0" />
                   <Button mnemonicParsing="false" onMouseClicked="#filmy" prefHeight="40.0" prefWidth="203.0" style="-fx-text-fill: #ffffff;" styleClass="navBtn" text="Filmy">
                      <font>
                         <Font size="21.0" />
@@ -67,6 +67,11 @@
                      </graphic>
                   </Button>
                   <Pane prefHeight="185.0" prefWidth="211.0" />
+                  <Button id="exitBtn" fx:id="login" mnemonicParsing="false" onAction="#login" prefHeight="22.0" prefWidth="203.0" style="-fx-background-color: #2B2C37;" stylesheets="@app.css" text="wyloguj">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
                   <Button id="exitBtn" mnemonicParsing="false" onAction="#exit" prefHeight="114.0" prefWidth="203.0" style="-fx-background-color: #2B2C37;" stylesheets="@app.css" text="Exit">
                      <font>
                         <Font size="27.0" />

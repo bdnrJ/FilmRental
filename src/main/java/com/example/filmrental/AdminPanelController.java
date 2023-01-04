@@ -7,10 +7,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -76,6 +78,21 @@ public class AdminPanelController implements Initializable {
     private void dluznicy() throws IOException {
         Parent fxml = FXMLLoader.load(getClass().getResource("adminDluznicy.fxml"));
         bp.setCenter(fxml);
+    }
+
+    @FXML
+    public void login() throws IOException {
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("login.fxml"));
+        Parent root = (Parent) fxmlloader.load();
+        root.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
+        Stage stage = new Stage();
+        stage.setTitle("login");
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.show();
+
+        Stage stage1 = (Stage) dluznicyCounter.getScene().getWindow();
+        stage1.close();
     }
 
     public void exit(){
