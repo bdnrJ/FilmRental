@@ -99,7 +99,7 @@ public class AdminUserPromptDeleteController {
 
     @FXML
     public void goToDeleteAlert(Uzytkownik uzytkownik) throws IOException {
-        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("adminFilmPrompDeleteFail.fxml"));
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("adminUzytkownikPrompDeleteFail.fxml"));
         Parent root = fxmlloader.load();
         root.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
         Stage stage = new Stage();
