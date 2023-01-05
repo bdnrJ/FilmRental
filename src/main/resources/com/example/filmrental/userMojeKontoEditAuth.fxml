@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="235.0" prefWidth="400.0" style="-fx-background-color: #20212C;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.filmrental.userMojeKontoEditAuthController">
+   <children>
+      <Text fx:id="title" fill="WHITE" layoutX="25.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Podaj hasło">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <Button fx:id="okBtn" layoutX="29.0" layoutY="187.0" mnemonicParsing="false" onAction="#ok" prefHeight="30.0" prefWidth="161.0" styleClass="styledbuttonround" text="Ok" />
+      <PasswordField fx:id="passField" layoutX="29.0" layoutY="90.0" prefHeight="36.0" prefWidth="343.0" styleClass="input" />
+      <Button fx:id="okBtn1" layoutX="214.0" layoutY="187.0" mnemonicParsing="false" onAction="#exit" prefHeight="30.0" prefWidth="161.0" styleClass="cancelBtn" text="Wyjdź" />
+      <Text fx:id="alert" fill="#eb2020" layoutX="77.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Podane hasło jest nieprawidłowe" visible="false">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

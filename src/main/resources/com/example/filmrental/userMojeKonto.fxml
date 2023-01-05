@@ -51,26 +51,36 @@
             <Font size="26.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="20.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ilość wykonanych tranzakcji:">
+      <Text fill="WHITE" layoutX="20.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ilość wykonanych tranzakcji:">
          <font>
             <Font size="26.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="20.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Suma wydatków:">
+      <Text fill="WHITE" layoutX="20.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Suma wydatków:">
          <font>
             <Font size="26.0" />
          </font>
       </Text>
-      <Text fx:id="userTranzakcjeCount" fill="WHITE" layoutX="358.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="tran">
+      <Text fx:id="userTranzakcjeCount" fill="WHITE" layoutX="358.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="tran">
          <font>
             <Font size="26.0" />
          </font>
       </Text>
-      <Text fx:id="userKoszt" fill="WHITE" layoutX="231.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="koszt">
+      <Text fx:id="userKoszt" fill="WHITE" layoutX="231.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="koszt">
          <font>
             <Font size="26.0" />
          </font>
       </Text>
-      <Button layoutX="21.0" layoutY="435.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="210.0" text="Edytuj dane" />
+      <Button layoutX="21.0" layoutY="435.0" mnemonicParsing="false" onAction="#editDane" prefHeight="45.0" prefWidth="210.0" text="Edytuj dane" />
+      <Text fill="WHITE" layoutX="22.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Łącznie wypożyczonych filmów:">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fx:id="userFilmy" fill="WHITE" layoutX="395.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="koszt">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="397.0" prefWidth="400.0" style="-fx-background-color: #20212C;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.filmrental.userMojeKontoEditController">
+   <children>
+      <Text fill="WHITE" layoutX="26.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edytuj dane">
+         <font>
+            <Font size="51.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="24.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nowy Nr_telefonu">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="23.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nowe Haslo">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <TextField fx:id="nr_tel" layoutX="24.0" layoutY="128.0" prefHeight="36.0" prefWidth="349.0" styleClass="input" />
+      <PasswordField fx:id="haslo" layoutX="24.0" layoutY="195.0" prefHeight="36.0" prefWidth="349.0" styleClass="input" />
+      <Button layoutX="27.0" layoutY="300.0" mnemonicParsing="false" onAction="#onChange" prefHeight="30.0" prefWidth="343.0" styleClass="styledbuttonround" text="Zatwierdź" />
+      <Label fx:id="nr_telAlert" layoutX="152.0" layoutY="112.0" prefHeight="17.0" prefWidth="222.0" text="Numer musi składać się wyłącznie z 9 cyfr" textFill="RED" visible="false" />
+      <Label fx:id="hasloAlert" layoutX="118.0" layoutY="179.0" text="Minimum 8 znaków w tym minimum 1 cyfra i 1 litera" textFill="#f50000" visible="false">
+         <font>
+            <Font size="11.0" />
+         </font></Label>
+      <Label fx:id="usedNrAlert" layoutX="30.0" layoutY="242.0" text="Podany numer telefonu został już wykorzystany!" textFill="RED" visible="false">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button layoutX="27.0" layoutY="341.0" mnemonicParsing="false" onAction="#exit" prefHeight="30.0" prefWidth="343.0" styleClass="cancelBtn" text="Anuluj" />
+      <Label fx:id="nochangeAlert" layoutX="93.0" layoutY="261.0" text="Nie dokonano żadnych zmian" textFill="RED" visible="false">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
