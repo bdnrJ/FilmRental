@@ -91,8 +91,7 @@ public class AdminUzytkownicyController implements Initializable {
                         editButton.setOnAction(event ->{
                             Uzytkownik f = getTableView().getItems().get(getIndex());
                             try {
-                               // goToEdytujFilmPrompt(f);
-                                System.out.println("edit");
+                                goToEditPrompt(f);
                                 System.out.println(f);
                             } catch (Exception e) {
                                 throw new RuntimeException(e);
@@ -258,7 +257,25 @@ public class AdminUzytkownicyController implements Initializable {
             }
         });
     }
-
+    @FXML
+    public void goToEditPrompt(Uzytkownik user) throws IOException{
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("adminUzytkownikPromptEdit.fxml"));
+        Parent root = fxmlloader.load();
+        root.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
+        Stage stage = new Stage();
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(tableView.getScene().getWindow());
+        stage.setTitle("Edytowanie uzytkownika");
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.setUserData(user);
+        stage.show();
+        stage.setOnHidden(new EventHandler<WindowEvent>(){
+            public void handle(WindowEvent we) {
+                reFetchAndRedisplay();
+            }
+        });
+    }
     @FXML
     public void goToMoreInfo(Uzytkownik user) throws IOException{
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("adminUzytkownikPromptInfo.fxml"));

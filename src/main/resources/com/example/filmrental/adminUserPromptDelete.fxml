@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="239.0" prefWidth="475.0" style="-fx-background-color: #2b2c37;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.filmrental.AdminUserPromptDeleteController">
    <children>
-      <Text fill="#ea5555" layoutX="6.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usunąć tego użytkownika?">
+      <Text fill="#ea5555" layoutX="20.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usunąć tego użytkownika?">
          <font>
             <Font size="32.0" />
          </font>
@@ -23,14 +23,14 @@
          </font>
       </Text>
       <Text fx:id="id" fill="WHITE" layoutX="146.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id" />
-      <Button fx:id="delete" layoutX="34.0" layoutY="170.0" mnemonicParsing="false" onAction="#usunFilm" prefHeight="33.0" prefWidth="192.0" styleClass="deleteBtn" text="Usuń" />
-      <Button fx:id="exit" layoutX="253.0" layoutY="170.0" mnemonicParsing="false" onAction="#exit" prefHeight="33.0" prefWidth="192.0" styleClass="cancelBtn" text="Wyjdź" />
-      <Text fill="#8d8d8d" layoutX="26.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuniętego użytkownika nie da się przywrócić!">
+      <Button fx:id="delete" layoutX="33.0" layoutY="187.0" mnemonicParsing="false" onAction="#usunFilm" prefHeight="33.0" prefWidth="192.0" styleClass="deleteBtn" text="Usuń" />
+      <Button fx:id="exit" layoutX="253.0" layoutY="187.0" mnemonicParsing="false" onAction="#exit" prefHeight="33.0" prefWidth="192.0" styleClass="cancelBtn" text="Wyjdź" />
+      <Text fill="#8d8d8d" layoutX="25.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuniętego użytkownika nie da się przywrócić!">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fill="#8d8d8d" layoutX="67.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nazwisko:">
+      <Text fill="#8d8d8d" layoutX="67.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nazwisko:">
          <font>
             <Font size="14.0" />
          </font>
@@ -41,7 +41,7 @@
          </font>
       </Text>
       <Text fx:id="imie" fill="WHITE" layoutX="146.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="imie" />
-      <Text fx:id="nazwisko" fill="WHITE" layoutX="145.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nazwisko" />
-      <Text fx:id="nr_tel" fill="WHITE" layoutX="145.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nr" />
+      <Text fx:id="nazwisko" fill="WHITE" layoutX="144.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nazwisko" />
+      <Text fx:id="nr_tel" fill="WHITE" layoutX="145.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nr" />
    </children>
 </AnchorPane>

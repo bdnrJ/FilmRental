@@ -12,13 +12,13 @@
             <Font size="15.0" />
          </font>
       </Text>
-      <Button layoutX="14.0" layoutY="184.0" mnemonicParsing="false" onAction="#deleteUserAndTransactions" prefHeight="26.0" prefWidth="186.0" text="Usun użytkownika i tranzakcje" />
+      <Button layoutX="14.0" layoutY="174.0" mnemonicParsing="false" onAction="#deleteUserAndTransactions" prefHeight="36.0" prefWidth="186.0" styleClass="deleteBtn" text="Usun użytkownika i tranzakcje" />
       <Text fx:id="sukcesja1" fill="#d0c5c4" layoutX="20.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="wszystkie powiązane z nim tranzakcje!">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Button layoutX="251.0" layoutY="184.0" mnemonicParsing="false" onAction="#zamknij" prefHeight="26.0" prefWidth="127.0" text="Wyjdź" />
+      <Button layoutX="234.0" layoutY="174.0" mnemonicParsing="false" onAction="#zamknij" prefHeight="36.0" prefWidth="127.0" styleClass="cancelBtn" text="Wyjdź" />
       <Text fx:id="sukcesja2" fill="#ff411f" layoutX="14.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usunąć użytkownika i powiązane">
          <font>
             <Font size="22.0" />
