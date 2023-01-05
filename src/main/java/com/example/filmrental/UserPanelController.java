@@ -52,7 +52,7 @@ public class UserPanelController implements Initializable {
 
     @FXML
     private void filmy() throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("userFilmy.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("userFilmyNew.fxml"));
         bp.setCenter(fxml);
     }
 
