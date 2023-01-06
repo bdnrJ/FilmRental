@@ -2,10 +2,14 @@ package com.example.filmrental;
 
 import MappingClasses.Film;
 import javafx.application.Platform;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -13,6 +17,12 @@ import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -41,20 +51,33 @@ public class AdminFilmPromptEditController {
     private TextField tytul;
     @FXML
     private Label tytulAlert;
+
+    @FXML
+    private ImageView filmImage;
+
     Film x = new Film();
+    Film nowy;
+    Stage thisStage;
+    private FileInputStream fis;
 
     public void initialize(){
 
         Platform.runLater(new Runnable() {
             public void run() {
-                getData();
+                try {
+                    getData();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
 
-    public void getData(){
+    public void getData() throws IOException {
         Stage stage = (Stage) id.getScene().getWindow();
+        thisStage = stage;
         x = (Film) stage.getUserData();
+        nowy = x;
         id.setText(String.valueOf(x.getId()));
         tytul.setText(x.getTytul());
         czasTrwania.setText(String.valueOf(x.getCzasTrwania()));
@@ -67,6 +90,19 @@ public class AdminFilmPromptEditController {
 
         jezyk.setText(x.getJezyk());
         kraj.setText(x.getKraj());
+
+        byte[] blob = x.getImage();
+        if(blob != null) {
+            ByteArrayInputStream bis = new ByteArrayInputStream(blob);
+            BufferedImage bImage = ImageIO.read(bis);
+            Image image = SwingFXUtils.toFXImage(bImage, null);
+
+            filmImage.setImage(image);
+        }else{
+            Image image = new Image("/noImg.jpg");
+            filmImage.setImage(image);
+        }
+
     }
 
     public void onEdit(){
@@ -102,7 +138,6 @@ public class AdminFilmPromptEditController {
         }
 
         if(allGood) {
-            Film nowy = x;
 
             //z stringa na date
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -163,5 +198,19 @@ public class AdminFilmPromptEditController {
         return s.matches("\\d{1,3}");
     }
 
+    @FXML
+    public void fileChooser() throws IOException {
+        thisStage = (Stage) tytulAlert.getScene().getWindow();
+        FileChooser fc = new FileChooser();
+        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image files (*.jpg)","*.jpg"));
+        File f = fc.showOpenDialog(thisStage);
+
+        if(f != null){
+            fis = new FileInputStream(f);
+            Image image = new Image(f.getAbsolutePath());
+            filmImage.setImage(image);
+            nowy.setImage(fis.readAllBytes());
+        }
+    }
 
 }

@@ -5,21 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1beb1e20-e477-484d-87d2-2b9ae7c66ae4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/filmrental/UserFilmBox.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/filmrental/UserFilmyNewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/userFilmBox.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/userFilmyNew.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/noImg.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_01_2023_20_15__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_01_2023_20_15__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MappingClasses/Film.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MappingClasses/Film.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filmrental/AdmindodajFilmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filmrental/AdmindodajFilmController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filmrental/UserPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filmrental/UserPanelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/adminDodajFilm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/adminDodajFilm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filmrental/AdminFilmPromptEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filmrental/AdminFilmPromptEditController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/adminFilmPromptEdit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/filmrental/adminFilmPromptEdit.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
