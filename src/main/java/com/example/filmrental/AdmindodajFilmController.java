@@ -4,6 +4,9 @@ import MappingClasses.Film;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -11,6 +14,11 @@ import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.sql.Blob;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -47,7 +55,19 @@ public class AdmindodajFilmController {
     @FXML
     private Label tytulAlert;
 
+    private String imageSrc;
 
+    @FXML
+    private Label imgsrc;
+
+    @FXML
+    private ImageView chosenImage;
+
+    Stage thisStage;
+
+    Film nowy = new Film();
+
+    private FileInputStream fis;
 
     public void onAdd(){
         czasTrwaniaAlert.setVisible(false);
@@ -82,8 +102,6 @@ public class AdmindodajFilmController {
         }
 
         if(allGood) {
-            Film nowy = new Film();
-
             //z stringa na date
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             try {
@@ -142,6 +160,22 @@ public class AdmindodajFilmController {
 
         Stage stage = (Stage) kraj.getScene().getWindow();
         stage.close();
+    }
+
+    @FXML
+    public void fileChooser() throws IOException {
+        thisStage = (Stage) tytulAlert.getScene().getWindow();
+        FileChooser fc = new FileChooser();
+        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image files (*.jpg)","*.jpg"));
+        File f = fc.showOpenDialog(thisStage);
+
+        if(f != null){
+            fis = new FileInputStream(f);
+            imgsrc.setVisible(false);
+            Image image = new Image(f.getAbsolutePath());
+            chosenImage.setImage(image);
+            nowy.setImage(fis.readAllBytes());
+        }
     }
 
 
