@@ -3,19 +3,26 @@ package com.example.filmrental;
 import MappingClasses.Film;
 import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.exception.DataException;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -23,6 +30,7 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.sql.DataTruncation;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -105,7 +113,7 @@ public class AdminFilmPromptEditController {
 
     }
 
-    public void onEdit(){
+    public void onEdit() throws IOException {
         czasTrwaniaAlert.setVisible(false);
         tytulAlert.setVisible(false);
         jezykAlert.setVisible(false);
@@ -161,7 +169,7 @@ public class AdminFilmPromptEditController {
         }
     }
 
-    public void pushToDatabase(Film zedytowany){
+    public void pushToDatabase(Film zedytowany) throws IOException {
         System.out.println(zedytowany);
         Configuration config = new Configuration().configure();
 
@@ -173,12 +181,16 @@ public class AdminFilmPromptEditController {
         Session session = factory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        session.update(zedytowany);
-        transaction.commit();
-        session.close();
+        try {
+            session.update(zedytowany);
+            transaction.commit();
+            session.close();
 
-        Stage stage = (Stage) kraj.getScene().getWindow();
-        stage.close();
+            Stage stage = (Stage) kraj.getScene().getWindow();
+            stage.close();
+        }catch (Exception e){
+            goToFailPrompt();
+        }
     }
 
     //regex
@@ -211,6 +223,20 @@ public class AdminFilmPromptEditController {
             filmImage.setImage(image);
             nowy.setImage(fis.readAllBytes());
         }
+    }
+
+    @FXML
+    public void goToFailPrompt() throws IOException{
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("adminFilmImageTooBigPrompt.fxml"));
+        Parent root = fxmlloader.load();
+        root.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
+        Stage stage = new Stage();
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(thisStage.getScene().getWindow());
+        stage.setTitle("Error");
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.show();
     }
 
 }

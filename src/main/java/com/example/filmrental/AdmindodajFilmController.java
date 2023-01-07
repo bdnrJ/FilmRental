@@ -2,11 +2,15 @@ package com.example.filmrental;
 
 import MappingClasses.Film;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -69,7 +73,7 @@ public class AdmindodajFilmController {
 
     private FileInputStream fis;
 
-    public void onAdd(){
+    public void onAdd() throws IOException {
         czasTrwaniaAlert.setVisible(false);
         tytulAlert.setVisible(false);
         jezykAlert.setVisible(false);
@@ -143,7 +147,7 @@ public class AdmindodajFilmController {
     }
 
 
-    public void pushToDatabase(Film nowyfilm){
+    public void pushToDatabase(Film nowyfilm) throws IOException {
         Configuration config = new Configuration().configure();
 
         config.addAnnotatedClass(MappingClasses.Film.class);
@@ -154,12 +158,30 @@ public class AdmindodajFilmController {
         Session session = factory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        session.persist(nowyfilm);
-        transaction.commit();
-        session.close();
+        try {
+            session.persist(nowyfilm);
+            transaction.commit();
+            session.close();
 
-        Stage stage = (Stage) kraj.getScene().getWindow();
-        stage.close();
+            Stage stage = (Stage) kraj.getScene().getWindow();
+            stage.close();
+        }catch (Exception e){
+            goToFailPrompt();
+        }
+    }
+
+    @FXML
+    public void goToFailPrompt() throws IOException{
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("adminFilmImageTooBigPrompt.fxml"));
+        Parent root = fxmlloader.load();
+        root.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
+        Stage stage = new Stage();
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(thisStage.getScene().getWindow());
+        stage.setTitle("Error");
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.show();
     }
 
     @FXML
