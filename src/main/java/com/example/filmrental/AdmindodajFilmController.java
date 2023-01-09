@@ -2,8 +2,15 @@ package com.example.filmrental;
 
 import MappingClasses.Film;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -11,6 +18,11 @@ import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.sql.Blob;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -47,9 +59,21 @@ public class AdmindodajFilmController {
     @FXML
     private Label tytulAlert;
 
+    private String imageSrc;
 
+    @FXML
+    private Label imgsrc;
 
-    public void onAdd(){
+    @FXML
+    private ImageView chosenImage;
+
+    Stage thisStage;
+
+    Film nowy = new Film();
+
+    private FileInputStream fis;
+
+    public void onAdd() throws IOException {
         czasTrwaniaAlert.setVisible(false);
         tytulAlert.setVisible(false);
         jezykAlert.setVisible(false);
@@ -82,8 +106,6 @@ public class AdmindodajFilmController {
         }
 
         if(allGood) {
-            Film nowy = new Film();
-
             //z stringa na date
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             try {
@@ -125,7 +147,7 @@ public class AdmindodajFilmController {
     }
 
 
-    public void pushToDatabase(Film nowyfilm){
+    public void pushToDatabase(Film nowyfilm) throws IOException {
         Configuration config = new Configuration().configure();
 
         config.addAnnotatedClass(MappingClasses.Film.class);
@@ -136,12 +158,46 @@ public class AdmindodajFilmController {
         Session session = factory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        session.persist(nowyfilm);
-        transaction.commit();
-        session.close();
+        try {
+            session.persist(nowyfilm);
+            transaction.commit();
+            session.close();
 
-        Stage stage = (Stage) kraj.getScene().getWindow();
-        stage.close();
+            Stage stage = (Stage) kraj.getScene().getWindow();
+            stage.close();
+        }catch (Exception e){
+            goToFailPrompt();
+        }
+    }
+
+    @FXML
+    public void goToFailPrompt() throws IOException{
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("adminFilmImageTooBigPrompt.fxml"));
+        Parent root = fxmlloader.load();
+        root.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
+        Stage stage = new Stage();
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(thisStage.getScene().getWindow());
+        stage.setTitle("Error");
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.show();
+    }
+
+    @FXML
+    public void fileChooser() throws IOException {
+        thisStage = (Stage) tytulAlert.getScene().getWindow();
+        FileChooser fc = new FileChooser();
+        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image files (*.jpg)","*.jpg"));
+        File f = fc.showOpenDialog(thisStage);
+
+        if(f != null){
+            fis = new FileInputStream(f);
+            imgsrc.setVisible(false);
+            Image image = new Image(f.getAbsolutePath());
+            chosenImage.setImage(image);
+            nowy.setImage(fis.readAllBytes());
+        }
     }
 
 

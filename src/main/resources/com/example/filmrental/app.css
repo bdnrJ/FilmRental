@@ -104,3 +104,11 @@
     -fx-background-color: #4a4f5e;
     -fx-border-color:  #635FC7;
 }
+
+.scrollpanel > .viewport {
+   -fx-background-color: transparent;
+}
+
+.scrollpanel{
+   -fx-background-color: transparent;
+}

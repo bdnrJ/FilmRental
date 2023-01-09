@@ -27,6 +27,18 @@ public class Film {
     @Column(name = "kraj")
     private String kraj;
 
+    @Column(name ="image")
+    @Lob
+    private byte[] image;
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
     public Film(String tytul, int czasTrwania, String jezyk, Date dataPremiery, String kraj) {
         this.tytul = tytul;
         this.czasTrwania = czasTrwania;
