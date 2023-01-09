@@ -201,7 +201,7 @@ public class AdminFilmPromptEditController {
         return s.matches("\\w{1,30}[a-zA-Z ]");
     }
     private boolean isTytulOK(String s){
-        return s.matches("^[a-zA-Z ]{1,40}$");
+        return s.matches("^[a-zA-Z ]{1,24}$");
     }
     private boolean isKrajOK(String s){
         return s.matches("\\w{2,24}[a-zA-Z]");

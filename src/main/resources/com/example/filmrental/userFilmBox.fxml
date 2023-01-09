@@ -24,9 +24,9 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Text fx:id="tytul" fill="WHITE" layoutX="12.0" layoutY="198.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Text" wrappingWidth="144.79998779296875">
+      <Text fx:id="tytul" fill="WHITE" layoutX="9.0" layoutY="198.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Text" wrappingWidth="144.79998779296875">
          <font>
-            <Font size="15.0" />
+            <Font size="13.0" />
          </font>
       </Text>
    </children>

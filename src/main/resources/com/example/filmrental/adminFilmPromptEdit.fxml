@@ -39,7 +39,7 @@
       <TextField fx:id="czasTrwania" layoutX="26.0" layoutY="197.0" prefHeight="36.0" prefWidth="343.0" styleClass="input" />
       <TextField fx:id="jezyk" layoutX="26.0" layoutY="263.0" prefHeight="36.0" prefWidth="343.0" styleClass="input" />
       <Button layoutX="28.0" layoutY="591.0" mnemonicParsing="false" onAction="#onEdit" prefHeight="30.0" prefWidth="343.0" styleClass="styledbuttonround" text="Edytuj film" />
-      <Label fx:id="tytulAlert" layoutX="289.0" layoutY="110.0" prefHeight="18.0" prefWidth="83.0" text="od 2 do 40 liter" textFill="RED" visible="false" />
+      <Label fx:id="tytulAlert" layoutX="289.0" layoutY="110.0" prefHeight="18.0" prefWidth="83.0" text="od 2 do 24 liter" textFill="RED" visible="false" />
       <Label fx:id="czasTrwaniaAlert" layoutX="307.0" layoutY="178.0" text="Max 3 cyfry" textFill="#ee0000" visible="false" />
       <Label fx:id="jezykAlert" layoutX="281.0" layoutY="243.0" prefHeight="18.0" prefWidth="83.0" text="od 2 do 30 liter" textFill="RED" visible="false" />
       <Text fill="WHITE" layoutX="29.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kraj">
